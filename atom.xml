@@ -4,7 +4,7 @@
   <title><![CDATA[Aaron Liew's Blog]]></title>
   <link href="http://aaronliew.github.io/atom.xml" rel="self"/>
   <link href="http://aaronliew.github.io/"/>
-  <updated>2014-02-28T01:07:21+08:00</updated>
+  <updated>2014-02-28T01:09:11+08:00</updated>
   <id>http://aaronliew.github.io/</id>
   <author>
     <name><![CDATA[Aaron Liew]]></name>
@@ -25,7 +25,7 @@ create the .MarkDown extension file, set the title of the post, and preview the 
 : rake preview and rake new_post. The explanation of the commands
 is shown in the figure below.</p>
 
-<p><img src="http://aaronliew.github.io/images/BlogConfiguration.jpg" title="Blog setup using command line" ></p>
+<p><img src="http://aaronliew.github.io/images/BlogConfiguration.JPG" title="Blog setup using command line" ></p>
 
 <p>After creating the new post, I have made amendments in _config yml file
 in order to configure the title, subtitle and author of the blog. The code
@@ -36,15 +36,15 @@ of yml file is shown in the figure below.</p>
 <p>The definition of the respective code in the _config yml file is shown in
 figure below.</p>
 
-<p><img src="http://aaronliew.github.io/images/configYML.jpg" title="Explanation of config yml coding" ></p>
+<p><img src="http://aaronliew.github.io/images/configYML.JPG" title="Explanation of config yml coding" ></p>
 
 <p>Next, to set the title, comments and category of the the blog, I have
 modified the coding of the file with MarkDown extension as shown below. <br/>
-<img class="center" src="http://aaronliew.github.io/images/MarkDown.jpg" title="Setting of blog post" ></p>
+<img class="center" src="http://aaronliew.github.io/images/MarkDown.JPG" title="Setting of blog post" ></p>
 
 <p>The definition of the respective code in the .MarkDown extension yml file is shown in
 figure below.
-<img src="http://aaronliew.github.io/images/MarkDownImage.jpg" title="Explanation of MarkDown extension file coding" ></p>
+<img src="http://aaronliew.github.io/images/MarkDownImage.JPG" title="Explanation of MarkDown extension file coding" ></p>
 ]]></content>
   </entry>
   
