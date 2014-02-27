@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | Aaron Liew's Blog]]></title>
   <link href="http://aaronliew.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://aaronliew.github.io/"/>
-  <updated>2014-02-27T15:46:17+08:00</updated>
+  <updated>2014-02-27T17:18:37+08:00</updated>
   <id>http://aaronliew.github.io/</id>
   <author>
     <name><![CDATA[Aaron Liew]]></name>
@@ -14,17 +14,11 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Day One: Octopress Blogging & 'Hello World' App]]></title>
+    <title type="html"><![CDATA[Octopress Blogging & 'Hello World' App"]]></title>
     <link href="http://aaronliew.github.io/blog/2014/02/24/day-one/"/>
     <updated>2014-02-24T11:08:29+08:00</updated>
     <id>http://aaronliew.github.io/blog/2014/02/24/day-one</id>
-    <content type="html"><![CDATA[<p>Octopress:</p>
-
-<p>I was trying to do blogging through Octopress. The clone the Octopress from github through Command Prompt.</p>
-
-<p>Android Development:</p>
-
-<p>Today, I was writing simple Android Application using Eclipse. In android application, it can display the simple words &lsquo;Hello World&rsquo;.</p>
+    <content type="html"><![CDATA[
 ]]></content>
   </entry>
   
