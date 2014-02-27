@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | Aaron Liew's Blog]]></title>
   <link href="http://aaronliew.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://aaronliew.github.io/"/>
-  <updated>2014-02-28T01:15:42+08:00</updated>
+  <updated>2014-02-28T01:17:24+08:00</updated>
   <id>http://aaronliew.github.io/</id>
   <author>
     <name><![CDATA[Aaron Liew]]></name>
@@ -44,7 +44,7 @@ modified the coding of the file with MarkDown extension as shown below. <br/>
 
 <p>The definition of the respective code in the .MarkDown extension yml file is shown in
 figure below.
-<img src="/images/MarkDownImage.JPG" title="Explanation of MarkDown extension file coding" ></p>
+<img src="/images/MarkdownImage.JPG" title="Explanation of MarkDown extension file coding" ></p>
 ]]></content>
   </entry>
   
