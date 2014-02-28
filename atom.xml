@@ -4,7 +4,7 @@
   <title><![CDATA[Aaron Liew's Blog]]></title>
   <link href="http://aaronliew.github.io/atom.xml" rel="self"/>
   <link href="http://aaronliew.github.io/"/>
-  <updated>2014-02-28T01:24:23+08:00</updated>
+  <updated>2014-02-28T14:20:14+08:00</updated>
   <id>http://aaronliew.github.io/</id>
   <author>
     <name><![CDATA[Aaron Liew]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Android App: Interaction Between Two Activities]]></title>
+    <link href="http://aaronliew.github.io/blog/2014/02/28/day-two/"/>
+    <updated>2014-02-28T09:37:09+08:00</updated>
+    <id>http://aaronliew.github.io/blog/2014/02/28/day-two</id>
+    <content type="html"><![CDATA[<p>First of all, user will insert text into the textbox and press the &lsquo;send&rsquo; button.
+In MainActivity class, the &lsquo;intent&rsquo; object store the values. Next, the DisplayMessageActivity
+will display the message which is inserted by the user. In order to have clearer picture on the
+operation of Android app and interactions between classes, I have created the charts as shown below.</p>
+
+<p><img class="center" src="http://aaronliew.github.io/images/ExplanationOfActivities.JPG" title="Explanation Of Activities" ></p>
+
+<p><img class="center" src="http://aaronliew.github.io/images/ClassInteraction.JPG" title="Interaction between class" ></p>
+
+<p>The result is shown in figure below.</p>
+
+<p><img class="center" src="http://aaronliew.github.io/images/Screenshot.JPG" title="Screenshot" ></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Blogging With Octopress]]></title>
