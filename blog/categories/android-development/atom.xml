@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Android Development | Aaron Liew's Blog]]></title>
+  <link href="http://aaronliew.github.io/blog/categories/android-development/atom.xml" rel="self"/>
+  <link href="http://aaronliew.github.io/"/>
+  <updated>2014-03-04T00:23:41+08:00</updated>
+  <id>http://aaronliew.github.io/</id>
+  <author>
+    <name><![CDATA[Aaron Liew]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Progress Bar and Action Bar]]></title>
+    <link href="http://aaronliew.github.io/blog/2014/03/03/day-three/"/>
+    <updated>2014-03-03T12:10:54+08:00</updated>
+    <id>http://aaronliew.github.io/blog/2014/03/03/day-three</id>
+    <content type="html"><![CDATA[<p>Each of android application has its own unique icon. In AndroidManifest.xml,
+&ldquo;android:icon=&rdquo;@drawable/ic_launcher" means the application icon refers to
+the image at the directory of /drawable/ic_launcher. Therefore, application icon
+can be changed by overwrite the image at this directory. The image can be overwritten
+by creating the new android icon and browse image from directory of downloaded image.
+The result is shown in the figure below.</p>
+
+<p><img class="center" src="/images/DayThree/AppIcon.png" title="Application Icon" ></p>
+
+<p>Progress bar is the indicator of the progress of an activity. It can be done by dragging
+the progress bar into the UI. In order to show progress bar at center of the application,
+the code &ldquo;android:layout_centerInParent="true&rdquo;&ldquo; was added into the main.xml file.
+The result is shown in the figure below.</p>
+
+<p><img class="center" src="/images/DayThree/ProgressBar.png" title="Progress Bar" ></p>
+
+<p>The purpose of action bar in this android application is to allow user to access to the
+help/about. Therefore, external library &ldquo;ActionBarSherlock&rdquo; was added to add action bar
+into the application. The id, icon, and title of the help and about of the menu were set
+in menu/option.xml file. The code of option.xml is shown in the figure below.</p>
+
+<p><img class="center" src="/images/DayThree/MainXml.JPG" title="Menu" ></p>
+
+<p>Next, in the src/main activity java file, the class was extended with SherlockFragmentActivty.
+The method onOptionsItemSelected was created to perform the action once user clicks on the
+help/about in the menu. The code of main activity java file is shown below.
+<img class="center" src="/images/DayThree/MainActivityJava.JPG" title="Menu" ></p>
+
+<p>When user clicks on the menu button, the result is illustrated as follows:</p>
+
+<p><img class="center" src="/images/DayThree/ScreenMenu.png" title="Menu" ></p>
+]]></content>
+  </entry>
+  
+</feed>

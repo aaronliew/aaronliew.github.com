@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | Aaron Liew's Blog]]></title>
   <link href="http://aaronliew.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://aaronliew.github.io/"/>
-  <updated>2014-02-28T14:20:14+08:00</updated>
+  <updated>2014-03-04T00:23:41+08:00</updated>
   <id>http://aaronliew.github.io/</id>
   <author>
     <name><![CDATA[Aaron Liew]]></name>
@@ -25,26 +25,26 @@ create the .MarkDown extension file, set the title of the post, and preview the 
 : rake preview and rake new_post. The explanation of the commands
 is shown in the figure below.</p>
 
-<p><img src="/images/BlogConfiguration.JPG" title="Blog setup using command line" ></p>
+<p><img src="/images/DayOne/BlogConfiguration.JPG" title="Blog setup using command line" ></p>
 
 <p>After creating the new post, I have made amendments in _config yml file
 in order to configure the title, subtitle and author of the blog. The code
 of yml file is shown in the figure below.</p>
 
-<p><img class="center" src="/images/ConfigureYML.JPG" title="config yml file coding" ></p>
+<p><img class="center" src="/images/DayOne/ConfigureYML.JPG" title="config yml file coding" ></p>
 
 <p>The definition of the respective code in the _config yml file is shown in
 figure below.</p>
 
-<p><img src="/images/configYML.JPG" title="Explanation of config yml coding" ></p>
+<p><img src="/images/DayOne/configYML.JPG" title="Explanation of config yml coding" ></p>
 
 <p>Next, to set the title, comments and category of the the blog, I have
 modified the coding of the file with MarkDown extension as shown below. <br/>
-<img class="center" src="/images/MarkDown.JPG" title="Setting of blog post" ></p>
+<img class="center" src="/images/DayOne/MarkDown.JPG" title="Setting of blog post" ></p>
 
 <p>The definition of the respective code in the .MarkDown extension yml file is shown in
 figure below.
-<img src="/images/MarkdownImage.JPG" title="Explanation of MarkDown extension file coding" ></p>
+<img src="/images/DayOne/MarkdownImage.JPG" title="Explanation of MarkDown extension file coding" ></p>
 ]]></content>
   </entry>
   
