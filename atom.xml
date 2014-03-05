@@ -4,7 +4,7 @@
   <title><![CDATA[Aaron Liew's Blog]]></title>
   <link href="http://aaronliew.github.io/atom.xml" rel="self"/>
   <link href="http://aaronliew.github.io/"/>
-  <updated>2014-03-04T14:49:58+08:00</updated>
+  <updated>2014-03-05T16:04:13+08:00</updated>
   <id>http://aaronliew.github.io/</id>
   <author>
     <name><![CDATA[Aaron Liew]]></name>
@@ -12,6 +12,44 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Movie Searching App]]></title>
+    <link href="http://aaronliew.github.io/blog/2014/03/05/day-four/"/>
+    <updated>2014-03-05T10:00:17+08:00</updated>
+    <id>http://aaronliew.github.io/blog/2014/03/05/day-four</id>
+    <content type="html"><![CDATA[<p>Movie Search Android Application was created. Figures below show
+screenshots of the UI of the android in order to have clear on picture
+on the functions of the app.
+<img class="center" src="http://aaronliew.github.io/images/DayFour/MovieSearchApp.JPG" title="LinearLayout" >
+<img class="center" src="http://aaronliew.github.io/images/DayFour/Toast.JPG" title="LinearLayout" ></p>
+
+<p>In the initial development, Toast method was used to show the popup message
+after pressing the search button. There are two types of layout: relative layout
+and linear layout.</p>
+
+<p><img class="center" src="http://aaronliew.github.io/images/DayFour/Linear_Relative_Layout.JPG" title="RadioGroup" ></p>
+
+<p>In activity_main.xml code, the &lsquo;RelativeLayout&#8217;is changed to the &#8216;LinearLayout&rsquo;.
+The layout is set in vertical orientation as shown in the figure below.<br/>
+<img class="center" src="http://aaronliew.github.io/images/DayFour/LinearLayout.JPG" title="RadioGroup" ></p>
+
+<p>A radiogroup was created to allow user to choose the options either movie or people.
+First of all, the id of the radiobuttons are set as shown below. The red circles is id
+of the widgets whereas the green circle is the text of the widgets.
+<img class="center" src="http://aaronliew.github.io/images/DayFour/RadioGroup_EditText.JPG" title="RadioGroup" ></p>
+
+<p>A button was created to allow user to search for a movie or people once user clicks on it.
+<img class="center" src="http://aaronliew.github.io/images/DayFour/Button.JPG" title="Button" ></p>
+
+<p>All the text of the widgets was set in string.xml which is important for localization.
+<img class="center" src="http://aaronliew.github.io/images/DayFour/string_xml.JPG" title="Button" ></p>
+
+<p>To shows the relationship between the MainActivity java and the xml file, the figure was drawn
+as shown in the figure below.
+<img class="center" src="http://aaronliew.github.io/images/DayFour/ClassInteraction.JPG" title="Button" ></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Progress Bar and Action Bar]]></title>
