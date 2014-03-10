@@ -4,7 +4,7 @@
   <title><![CDATA[Aaron Liew's Blog]]></title>
   <link href="http://aaronliew.github.io/atom.xml" rel="self"/>
   <link href="http://aaronliew.github.io/"/>
-  <updated>2014-03-05T16:04:13+08:00</updated>
+  <updated>2014-03-11T00:40:58+08:00</updated>
   <id>http://aaronliew.github.io/</id>
   <author>
     <name><![CDATA[Aaron Liew]]></name>
@@ -12,6 +12,59 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Movie Searching App- Online Searching Function]]></title>
+    <link href="http://aaronliew.github.io/blog/2014/03/10/day-five/"/>
+    <updated>2014-03-10T21:02:24+08:00</updated>
+    <id>http://aaronliew.github.io/blog/2014/03/10/day-five</id>
+    <content type="html"><![CDATA[<p>Basically, there are two types of search in this app: Movie and Person.
+<img class="center" src="http://aaronliew.github.io/images/DayFive/Classification.JPG" title="Classification" ></p>
+
+<p>The flowchart on how movie searching app works is shown in the figure below.
+<img class="center" src="http://aaronliew.github.io/images/DayFive/FlowChart.JPG" title="FlowChart" ></p>
+
+<p>There are two additional features that I have added in the android applications:
+Progress Bar and Online Searching function. The Progress Bar is the indication of
+the progress of retrieving the JSON data from the URL. The online searching function
+includes retrieve the data from the URL and convert the JSON format to JAVA Object
+using GSON library. There were problems I have encountered in the process of
+completing the task as shown below.</p>
+
+<p>1)Problem: API of movie database was upgraded to version 3, therefore, all the data is presented in
+JSON format instead of XML format</p>
+
+<p>Solution: Use the GSON libray to convert JSON format into Data Object and display relevant data in the form
+of pop-up message at the bottom of the app.</p>
+
+<p>2)Problem: Method to acquire the data from the movie database</p>
+
+<p>Solution:  Acquire API key of the movie database. Construct the URL with API key in order to obtain JSON data.</p>
+
+<p>3)Problem: NetworkOnMainThread Exception occur while retrieving data from database</p>
+
+<p>Solution: Async task was used to solve the &ldquo;NetworkOnMainThread&rdquo; exception error.</p>
+
+<p>The operation of app is explained and the result of the movie searching app is shown as follows:</p>
+
+<p>First of all, with movie-search type, the text &ldquo;inception&rdquo; was entered as shown in the figure below.
+The progress bar is shown while obtaining the data from the url after user clicks on the &ldquo;Search Button&rdquo;.
+<img class="center" src="http://aaronliew.github.io/images/DayFive/MovieSearch.png" title="FlowChart" ></p>
+
+<p>After data is obtained, the movie title and popularity are shown in the pop-up message.</p>
+
+<p><img class="center" src="http://aaronliew.github.io/images/DayFive/MovieResult.png" title="FlowChart" ></p>
+
+<p>For person-search type, the operation is same as the movie-search type as shown in the figures below.</p>
+
+<p><img class="center" src="http://aaronliew.github.io/images/DayFive/PersonSearch.png" title="FlowChart" ></p>
+
+<p><img class="center" src="http://aaronliew.github.io/images/DayFive/PersonResult.png" title="FlowChart" ></p>
+
+<p>In the next blog, I will discuss about detail description of structure of coding and ways to troubleshoot
+the bug of the app.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Movie Searching App]]></title>

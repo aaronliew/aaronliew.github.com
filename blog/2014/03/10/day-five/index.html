@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Progress Bar and Action Bar - Aaron Liew's Blog</title>
+  <title>Movie Searching App- Online Searching Function - Aaron Liew's Blog</title>
   <meta name="author" content="Aaron Liew">
 
   
-  <meta name="description" content="Each of android application has its own unique icon. In AndroidManifest.xml,
-&ldquo;android:icon=&rdquo;@drawable/ic_launcher&#8221; means the &hellip;">
+  <meta name="description" content="Basically, there are two types of search in this app: Movie and Person. The flowchart on how movie searching app works is shown in the figure below. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://aaronliew.github.io/blog/2014/03/03/day-three">
+  <link rel="canonical" href="http://aaronliew.github.io/blog/2014/03/10/day-five">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Aaron Liew's Blog" type="application/atom+xml">
@@ -69,7 +68,7 @@
   
   <header>
     
-      <h1 class="entry-title">Progress Bar and Action Bar</h1>
+      <h1 class="entry-title">Movie Searching App- Online Searching Function</h1>
     
     
       <p class="meta">
@@ -85,44 +84,58 @@
   
 
 
-<time datetime="2014-03-03T12:10:54+08:00" pubdate data-updated="true">Mar 3<span>rd</span>, 2014</time>
+<time datetime="2014-03-10T21:02:24+08:00" pubdate data-updated="true">Mar 10<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Each of android application has its own unique icon. In AndroidManifest.xml,
-&ldquo;android:icon=&rdquo;@drawable/ic_launcher&#8221; means the application icon refers to
-the image at the directory of /drawable/ic_launcher. Therefore, application icon
-can be changed by overwrite the image at this directory. The image can be overwritten
-by creating the new android icon and browse image from directory of downloaded image.
-The result is shown in the figure below.</p>
+<div class="entry-content"><p>Basically, there are two types of search in this app: Movie and Person.
+<img class="center" src="/images/DayFive/Classification.JPG" title="Classification" ></p>
 
-<p><img class="center" src="/images/DayThree/AppIcon.png" title="Application Icon" ></p>
+<p>The flowchart on how movie searching app works is shown in the figure below.
+<img class="center" src="/images/DayFive/FlowChart.JPG" title="FlowChart" ></p>
 
-<p>Progress bar is the indicator of the progress of an activity. It can be done by dragging
-the progress bar into the UI. In order to show progress bar at center of the application,
-the code &ldquo;android:layout_centerInParent=&#8221;true&rdquo;&ldquo; was added into the main.xml file.
-The result is shown in the figure below.</p>
+<p>There are two additional features that I have added in the android applications:
+Progress Bar and Online Searching function. The Progress Bar is the indication of
+the progress of retrieving the JSON data from the URL. The online searching function
+includes retrieve the data from the URL and convert the JSON format to JAVA Object
+using GSON library. There were problems I have encountered in the process of
+completing the task as shown below.</p>
 
-<p><img class="center" src="/images/DayThree/ProgressBar.png" title="Progress Bar" ></p>
+<p>1)Problem: API of movie database was upgraded to version 3, therefore, all the data is presented in
+JSON format instead of XML format</p>
 
-<p>The purpose of action bar in this android application is to allow user to access to the
-help/about. Therefore, external library &ldquo;ActionBarSherlock&rdquo; was added to add action bar
-into the application. The id, icon, and title of the help and about of the menu were set
-in menu/option.xml file. The code of option.xml is shown in the figure below.</p>
+<p>Solution: Use the GSON libray to convert JSON format into Data Object and display relevant data in the form
+of pop-up message at the bottom of the app.</p>
 
-<p><img class="center" src="/images/DayThree/MainXml.JPG" title="Menu" ></p>
+<p>2)Problem: Method to acquire the data from the movie database</p>
 
-<p>Next, in the src/main activity java file, the class was extended with SherlockFragmentActivty.
-The method onOptionsItemSelected was created to perform the action once user clicks on the
-help/about in the menu. The code of main activity java file is shown below.
-<img class="center" src="/images/DayThree/MainActivityJava.JPG" title="Menu" ></p>
+<p>Solution:  Acquire API key of the movie database. Construct the URL with API key in order to obtain JSON data.</p>
 
-<p>When user clicks on the menu button, the result is illustrated as follows:</p>
+<p>3)Problem: NetworkOnMainThread Exception occur while retrieving data from database</p>
 
-<p><img class="center" src="/images/DayThree/ScreenMenu.png" title="Menu" ></p>
+<p>Solution: Async task was used to solve the &ldquo;NetworkOnMainThread&rdquo; exception error.</p>
+
+<p>The operation of app is explained and the result of the movie searching app is shown as follows:</p>
+
+<p>First of all, with movie-search type, the text &ldquo;inception&rdquo; was entered as shown in the figure below.
+The progress bar is shown while obtaining the data from the url after user clicks on the &ldquo;Search Button&rdquo;.
+<img class="center" src="/images/DayFive/MovieSearch.png" title="FlowChart" ></p>
+
+<p>After data is obtained, the movie title and popularity are shown in the pop-up message.</p>
+
+<p><img class="center" src="/images/DayFive/MovieResult.png" title="FlowChart" ></p>
+
+<p>For person-search type, the operation is same as the movie-search type as shown in the figures below.</p>
+
+<p><img class="center" src="/images/DayFive/PersonSearch.png" title="FlowChart" ></p>
+
+<p><img class="center" src="/images/DayFive/PersonResult.png" title="FlowChart" ></p>
+
+<p>In the next blog, I will discuss about detail description of structure of coding and ways to troubleshoot
+the bug of the app.</p>
 </div>
 
 
@@ -145,12 +158,12 @@ help/about in the menu. The code of main activity java file is shown below.
   
 
 
-<time datetime="2014-03-03T12:10:54+08:00" pubdate data-updated="true">Mar 3<span>rd</span>, 2014</time>
+<time datetime="2014-03-10T21:02:24+08:00" pubdate data-updated="true">Mar 10<span>th</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/android-development/'>Android Development</a>, <a class='category' href='/blog/categories/tutorial/'>Tutorial</a>
+    <a class='category' href='/blog/categories/android/'>Android</a>, <a class='category' href='/blog/categories/application/'>Application</a>, <a class='category' href='/blog/categories/movie-searching-apps/'>Movie Searching Apps</a>
   
 </span>
 
@@ -159,7 +172,7 @@ help/about in the menu. The code of main activity java file is shown below.
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://aaronliew.github.io/blog/2014/03/03/day-three/" data-via="" data-counturl="http://aaronliew.github.io/blog/2014/03/03/day-three/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://aaronliew.github.io/blog/2014/03/10/day-five/" data-via="" data-counturl="http://aaronliew.github.io/blog/2014/03/10/day-five/" >Tweet</a>
   
   
   
@@ -168,10 +181,8 @@ help/about in the menu. The code of main activity java file is shown below.
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/02/25/day-two/" title="Previous Post: Android App: Interaction between two activities">&laquo; Android App: Interaction between two activities</a>
+        <a class="basic-alignment left" href="/blog/2014/03/05/day-four/" title="Previous Post: Movie Searching App">&laquo; Movie Searching App</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/03/05/day-four/" title="Next Post: Movie Searching App">Movie Searching App &raquo;</a>
       
     </p>
   </footer>

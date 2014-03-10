@@ -9,9 +9,7 @@
   <meta name="author" content="Aaron Liew">
 
   
-  <meta name="description" content="Movie Search Android Application was created. Figures below show
-screenshots of the UI of the android in order to have clear on picture
-on the &hellip;">
+  <meta name="description" content="Basically, there are two types of search in this app: Movie and Person. The flowchart on how movie searching app works is shown in the figure below. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +65,86 @@ on the &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/10/day-five/">Movie Searching App- Online Searching Function</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-10T21:02:24+08:00" pubdate data-updated="true">Mar 10<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Basically, there are two types of search in this app: Movie and Person.
+<img class="center" src="/images/DayFive/Classification.JPG" title="Classification" ></p>
+
+<p>The flowchart on how movie searching app works is shown in the figure below.
+<img class="center" src="/images/DayFive/FlowChart.JPG" title="FlowChart" ></p>
+
+<p>There are two additional features that I have added in the android applications:
+Progress Bar and Online Searching function. The Progress Bar is the indication of
+the progress of retrieving the JSON data from the URL. The online searching function
+includes retrieve the data from the URL and convert the JSON format to JAVA Object
+using GSON library. There were problems I have encountered in the process of
+completing the task as shown below.</p>
+
+<p>1)Problem: API of movie database was upgraded to version 3, therefore, all the data is presented in
+JSON format instead of XML format</p>
+
+<p>Solution: Use the GSON libray to convert JSON format into Data Object and display relevant data in the form
+of pop-up message at the bottom of the app.</p>
+
+<p>2)Problem: Method to acquire the data from the movie database</p>
+
+<p>Solution:  Acquire API key of the movie database. Construct the URL with API key in order to obtain JSON data.</p>
+
+<p>3)Problem: NetworkOnMainThread Exception occur while retrieving data from database</p>
+
+<p>Solution: Async task was used to solve the &ldquo;NetworkOnMainThread&rdquo; exception error.</p>
+
+<p>The operation of app is explained and the result of the movie searching app is shown as follows:</p>
+
+<p>First of all, with movie-search type, the text &ldquo;inception&rdquo; was entered as shown in the figure below.
+The progress bar is shown while obtaining the data from the url after user clicks on the &ldquo;Search Button&rdquo;.
+<img class="center" src="/images/DayFive/MovieSearch.png" title="FlowChart" ></p>
+
+<p>After data is obtained, the movie title and popularity are shown in the pop-up message.</p>
+
+<p><img class="center" src="/images/DayFive/MovieResult.png" title="FlowChart" ></p>
+
+<p>For person-search type, the operation is same as the movie-search type as shown in the figures below.</p>
+
+<p><img class="center" src="/images/DayFive/PersonSearch.png" title="FlowChart" ></p>
+
+<p><img class="center" src="/images/DayFive/PersonResult.png" title="FlowChart" ></p>
+
+<p>In the next blog, I will discuss about detail description of structure of coding and ways to troubleshoot
+the bug of the app.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -319,6 +397,10 @@ figure below.
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/10/day-five/">Movie Searching App- Online Searching Function</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/03/05/day-four/">Movie Searching App</a>
