@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Movie Searching Apps | Aaron Liew's Blog]]></title>
   <link href="http://aaronliew.github.io/blog/categories/movie-searching-apps/atom.xml" rel="self"/>
   <link href="http://aaronliew.github.io/"/>
-  <updated>2014-03-11T00:40:58+08:00</updated>
+  <updated>2014-03-11T18:27:16+08:00</updated>
   <id>http://aaronliew.github.io/</id>
   <author>
     <name><![CDATA[Aaron Liew]]></name>
@@ -34,16 +34,16 @@ completing the task as shown below.</p>
 <p>1)Problem: API of movie database was upgraded to version 3, therefore, all the data is presented in
 JSON format instead of XML format</p>
 
-<p>Solution: Use the GSON libray to convert JSON format into Data Object and display relevant data in the form
-of pop-up message at the bottom of the app.</p>
+<p><em>Solution: Use the GSON libray to convert JSON format into Data Object and display relevant data in the form
+of pop-up message at the bottom of the app.</em></p>
 
 <p>2)Problem: Method to acquire the data from the movie database</p>
 
-<p>Solution:  Acquire API key of the movie database. Construct the URL with API key in order to obtain JSON data.</p>
+<p><em>Solution:  Acquire API key of the movie database. Construct the URL with API key in order to obtain JSON data.</em></p>
 
 <p>3)Problem: NetworkOnMainThread Exception occur while retrieving data from database</p>
 
-<p>Solution: Async task was used to solve the &ldquo;NetworkOnMainThread&rdquo; exception error.</p>
+<p><em>Solution: Async task was used to solve the &ldquo;NetworkOnMainThread&rdquo; exception error.</em></p>
 
 <p>The operation of app is explained and the result of the movie searching app is shown as follows:</p>
 

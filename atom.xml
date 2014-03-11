@@ -4,7 +4,7 @@
   <title><![CDATA[Aaron Liew's Blog]]></title>
   <link href="http://aaronliew.github.io/atom.xml" rel="self"/>
   <link href="http://aaronliew.github.io/"/>
-  <updated>2014-03-11T00:40:58+08:00</updated>
+  <updated>2014-03-11T18:27:16+08:00</updated>
   <id>http://aaronliew.github.io/</id>
   <author>
     <name><![CDATA[Aaron Liew]]></name>
@@ -12,6 +12,54 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Movie Searching App- Coding Explanation]]></title>
+    <link href="http://aaronliew.github.io/blog/2014/03/11/day-six/"/>
+    <updated>2014-03-11T09:10:50+08:00</updated>
+    <id>http://aaronliew.github.io/blog/2014/03/11/day-six</id>
+    <content type="html"><![CDATA[<p>There are five packages in this app as shown in the figure below.
+<img class="center" src="http://aaronliew.github.io/images/DaySix/PackageChart.JPG" title="Package Chart" >
+In each of these packages, it contains classes as follows:</p>
+
+<ol>
+<li>MovieSearchingApp package
+
+<ul>
+<li>MainActivity.Java</li>
+</ul>
+</li>
+<li>IO package
+
+<ul>
+<li>FlushedInputStream.Java</li>
+</ul>
+</li>
+<li>Model package
+
+<ul>
+<li>Movies.Java</li>
+<li>MoviesResult.Java</li>
+<li>Person.Java</li>
+<li>PersonResult.Java</li>
+</ul>
+</li>
+<li>Services package
+
+<ul>
+<li>GenericSeeker.Java</li>
+<li>MovieSeeker.Java</li>
+<li>PersonSeeker.Java</li>
+</ul>
+</li>
+</ol>
+
+
+<p>In order to explain the purpose of class and package and also show the interaction
+between the package and classes, the chart was constructed as shown in the figure below.
+<img class="center" src="http://aaronliew.github.io/images/DaySix/CodingExplanation.png" title="Coding Explanation" ></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Movie Searching App- Online Searching Function]]></title>
@@ -34,16 +82,16 @@ completing the task as shown below.</p>
 <p>1)Problem: API of movie database was upgraded to version 3, therefore, all the data is presented in
 JSON format instead of XML format</p>
 
-<p>Solution: Use the GSON libray to convert JSON format into Data Object and display relevant data in the form
-of pop-up message at the bottom of the app.</p>
+<p><em>Solution: Use the GSON libray to convert JSON format into Data Object and display relevant data in the form
+of pop-up message at the bottom of the app.</em></p>
 
 <p>2)Problem: Method to acquire the data from the movie database</p>
 
-<p>Solution:  Acquire API key of the movie database. Construct the URL with API key in order to obtain JSON data.</p>
+<p><em>Solution:  Acquire API key of the movie database. Construct the URL with API key in order to obtain JSON data.</em></p>
 
 <p>3)Problem: NetworkOnMainThread Exception occur while retrieving data from database</p>
 
-<p>Solution: Async task was used to solve the &ldquo;NetworkOnMainThread&rdquo; exception error.</p>
+<p><em>Solution: Async task was used to solve the &ldquo;NetworkOnMainThread&rdquo; exception error.</em></p>
 
 <p>The operation of app is explained and the result of the movie searching app is shown as follows:</p>
 

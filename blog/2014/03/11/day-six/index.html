@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Progress Bar and Action Bar - Aaron Liew's Blog</title>
+  <title>Movie Searching App- Coding Explanation - Aaron Liew's Blog</title>
   <meta name="author" content="Aaron Liew">
 
   
-  <meta name="description" content="Each of android application has its own unique icon. In AndroidManifest.xml,
-&ldquo;android:icon=&rdquo;@drawable/ic_launcher&#8221; means the &hellip;">
+  <meta name="description" content="There are five packages in this app as shown in the figure below. In each of these packages, it contains classes as follows: MovieSearchingApp &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://aaronliew.github.io/blog/2014/03/03/day-three">
+  <link rel="canonical" href="http://aaronliew.github.io/blog/2014/03/11/day-six">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Aaron Liew's Blog" type="application/atom+xml">
@@ -69,7 +68,7 @@
   
   <header>
     
-      <h1 class="entry-title">Progress Bar and Action Bar</h1>
+      <h1 class="entry-title">Movie Searching App- Coding Explanation</h1>
     
     
       <p class="meta">
@@ -85,44 +84,53 @@
   
 
 
-<time datetime="2014-03-03T12:10:54+08:00" pubdate data-updated="true">Mar 3<span>rd</span>, 2014</time>
+<time datetime="2014-03-11T09:10:50+08:00" pubdate data-updated="true">Mar 11<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Each of android application has its own unique icon. In AndroidManifest.xml,
-&ldquo;android:icon=&rdquo;@drawable/ic_launcher&#8221; means the application icon refers to
-the image at the directory of /drawable/ic_launcher. Therefore, application icon
-can be changed by overwrite the image at this directory. The image can be overwritten
-by creating the new android icon and browse image from directory of downloaded image.
-The result is shown in the figure below.</p>
+<div class="entry-content"><p>There are five packages in this app as shown in the figure below.
+<img class="center" src="/images/DaySix/PackageChart.JPG" title="Package Chart" >
+In each of these packages, it contains classes as follows:</p>
 
-<p><img class="center" src="/images/DayThree/AppIcon.png" title="Application Icon" ></p>
+<ol>
+<li>MovieSearchingApp package
 
-<p>Progress bar is the indicator of the progress of an activity. It can be done by dragging
-the progress bar into the UI. In order to show progress bar at center of the application,
-the code &ldquo;android:layout_centerInParent=&#8221;true&rdquo;&ldquo; was added into the main.xml file.
-The result is shown in the figure below.</p>
+<ul>
+<li>MainActivity.Java</li>
+</ul>
+</li>
+<li>IO package
 
-<p><img class="center" src="/images/DayThree/ProgressBar.png" title="Progress Bar" ></p>
+<ul>
+<li>FlushedInputStream.Java</li>
+</ul>
+</li>
+<li>Model package
 
-<p>The purpose of action bar in this android application is to allow user to access to the
-help/about. Therefore, external library &ldquo;ActionBarSherlock&rdquo; was added to add action bar
-into the application. The id, icon, and title of the help and about of the menu were set
-in menu/option.xml file. The code of option.xml is shown in the figure below.</p>
+<ul>
+<li>Movies.Java</li>
+<li>MoviesResult.Java</li>
+<li>Person.Java</li>
+<li>PersonResult.Java</li>
+</ul>
+</li>
+<li>Services package
 
-<p><img class="center" src="/images/DayThree/MainXml.JPG" title="Menu" ></p>
+<ul>
+<li>GenericSeeker.Java</li>
+<li>MovieSeeker.Java</li>
+<li>PersonSeeker.Java</li>
+</ul>
+</li>
+</ol>
 
-<p>Next, in the src/main activity java file, the class was extended with SherlockFragmentActivty.
-The method onOptionsItemSelected was created to perform the action once user clicks on the
-help/about in the menu. The code of main activity java file is shown below.
-<img class="center" src="/images/DayThree/MainActivityJava.JPG" title="Menu" ></p>
 
-<p>When user clicks on the menu button, the result is illustrated as follows:</p>
-
-<p><img class="center" src="/images/DayThree/ScreenMenu.png" title="Menu" ></p>
+<p>In order to explain the purpose of class and package and also show the interaction
+between the package and classes, the chart was constructed as shown in the figure below.
+<img class="center" src="/images/DaySix/CodingExplanation.png" title="Coding Explanation" ></p>
 </div>
 
 
@@ -145,12 +153,12 @@ help/about in the menu. The code of main activity java file is shown below.
   
 
 
-<time datetime="2014-03-03T12:10:54+08:00" pubdate data-updated="true">Mar 3<span>rd</span>, 2014</time>
+<time datetime="2014-03-11T09:10:50+08:00" pubdate data-updated="true">Mar 11<span>th</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/android-development/'>Android Development</a>, <a class='category' href='/blog/categories/tutorial/'>Tutorial</a>
+    <a class='category' href='/blog/categories/android/'>Android</a>, <a class='category' href='/blog/categories/development/'>Development</a>
   
 </span>
 
@@ -159,7 +167,7 @@ help/about in the menu. The code of main activity java file is shown below.
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://aaronliew.github.io/blog/2014/03/03/day-three/" data-via="" data-counturl="http://aaronliew.github.io/blog/2014/03/03/day-three/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://aaronliew.github.io/blog/2014/03/11/day-six/" data-via="" data-counturl="http://aaronliew.github.io/blog/2014/03/11/day-six/" >Tweet</a>
   
   
   
@@ -168,10 +176,8 @@ help/about in the menu. The code of main activity java file is shown below.
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/02/25/day-two/" title="Previous Post: Android App: Interaction between two activities">&laquo; Android App: Interaction between two activities</a>
+        <a class="basic-alignment left" href="/blog/2014/03/10/day-five/" title="Previous Post: Movie Searching App- Online Searching Function">&laquo; Movie Searching App- Online Searching Function</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/03/05/day-four/" title="Next Post: Movie Searching App">Movie Searching App &raquo;</a>
       
     </p>
   </footer>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Development | Aaron Liew's Blog]]></title>
+  <link href="http://aaronliew.github.io/blog/categories/development/atom.xml" rel="self"/>
+  <link href="http://aaronliew.github.io/"/>
+  <updated>2014-03-11T18:27:16+08:00</updated>
+  <id>http://aaronliew.github.io/</id>
+  <author>
+    <name><![CDATA[Aaron Liew]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Movie Searching App- Coding Explanation]]></title>
+    <link href="http://aaronliew.github.io/blog/2014/03/11/day-six/"/>
+    <updated>2014-03-11T09:10:50+08:00</updated>
+    <id>http://aaronliew.github.io/blog/2014/03/11/day-six</id>
+    <content type="html"><![CDATA[<p>There are five packages in this app as shown in the figure below.
+<img class="center" src="/images/DaySix/PackageChart.JPG" title="Package Chart" >
+In each of these packages, it contains classes as follows:</p>
+
+<ol>
+<li>MovieSearchingApp package
+
+<ul>
+<li>MainActivity.Java</li>
+</ul>
+</li>
+<li>IO package
+
+<ul>
+<li>FlushedInputStream.Java</li>
+</ul>
+</li>
+<li>Model package
+
+<ul>
+<li>Movies.Java</li>
+<li>MoviesResult.Java</li>
+<li>Person.Java</li>
+<li>PersonResult.Java</li>
+</ul>
+</li>
+<li>Services package
+
+<ul>
+<li>GenericSeeker.Java</li>
+<li>MovieSeeker.Java</li>
+<li>PersonSeeker.Java</li>
+</ul>
+</li>
+</ol>
+
+
+<p>In order to explain the purpose of class and package and also show the interaction
+between the package and classes, the chart was constructed as shown in the figure below.
+<img class="center" src="/images/DaySix/CodingExplanation.png" title="Coding Explanation" ></p>
+]]></content>
+  </entry>
+  
+</feed>

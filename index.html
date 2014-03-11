@@ -9,7 +9,7 @@
   <meta name="author" content="Aaron Liew">
 
   
-  <meta name="description" content="Basically, there are two types of search in this app: Movie and Person. The flowchart on how movie searching app works is shown in the figure below. &hellip;">
+  <meta name="description" content="There are five packages in this app as shown in the figure below. In each of these packages, it contains classes as follows: MovieSearchingApp &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -71,6 +71,81 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2014/03/11/day-six/">Movie Searching App- Coding Explanation</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-11T09:10:50+08:00" pubdate data-updated="true">Mar 11<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>There are five packages in this app as shown in the figure below.
+<img class="center" src="/images/DaySix/PackageChart.JPG" title="Package Chart" >
+In each of these packages, it contains classes as follows:</p>
+
+<ol>
+<li>MovieSearchingApp package
+
+<ul>
+<li>MainActivity.Java</li>
+</ul>
+</li>
+<li>IO package
+
+<ul>
+<li>FlushedInputStream.Java</li>
+</ul>
+</li>
+<li>Model package
+
+<ul>
+<li>Movies.Java</li>
+<li>MoviesResult.Java</li>
+<li>Person.Java</li>
+<li>PersonResult.Java</li>
+</ul>
+</li>
+<li>Services package
+
+<ul>
+<li>GenericSeeker.Java</li>
+<li>MovieSeeker.Java</li>
+<li>PersonSeeker.Java</li>
+</ul>
+</li>
+</ol>
+
+
+<p>In order to explain the purpose of class and package and also show the interaction
+between the package and classes, the chart was constructed as shown in the figure below.
+<img class="center" src="/images/DaySix/CodingExplanation.png" title="Coding Explanation" ></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2014/03/10/day-five/">Movie Searching App- Online Searching Function</a></h1>
     
     
@@ -110,16 +185,16 @@ completing the task as shown below.</p>
 <p>1)Problem: API of movie database was upgraded to version 3, therefore, all the data is presented in
 JSON format instead of XML format</p>
 
-<p>Solution: Use the GSON libray to convert JSON format into Data Object and display relevant data in the form
-of pop-up message at the bottom of the app.</p>
+<p><em>Solution: Use the GSON libray to convert JSON format into Data Object and display relevant data in the form
+of pop-up message at the bottom of the app.</em></p>
 
 <p>2)Problem: Method to acquire the data from the movie database</p>
 
-<p>Solution:  Acquire API key of the movie database. Construct the URL with API key in order to obtain JSON data.</p>
+<p><em>Solution:  Acquire API key of the movie database. Construct the URL with API key in order to obtain JSON data.</em></p>
 
 <p>3)Problem: NetworkOnMainThread Exception occur while retrieving data from database</p>
 
-<p>Solution: Async task was used to solve the &ldquo;NetworkOnMainThread&rdquo; exception error.</p>
+<p><em>Solution: Async task was used to solve the &ldquo;NetworkOnMainThread&rdquo; exception error.</em></p>
 
 <p>The operation of app is explained and the result of the movie searching app is shown as follows:</p>
 
@@ -399,6 +474,10 @@ figure below.
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/03/11/day-six/">Movie Searching App- Coding Explanation</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/03/10/day-five/">Movie Searching App- Online Searching Function</a>
       </li>
     
@@ -412,10 +491,6 @@ figure below.
     
       <li class="post">
         <a href="/blog/2014/02/25/day-two/">Android App: Interaction Between Two Activities</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/24/day-one/">Blogging With Octopress</a>
       </li>
     
   </ul>
