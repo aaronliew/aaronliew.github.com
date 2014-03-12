@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Development | Aaron Liew's Blog]]></title>
   <link href="http://aaronliew.github.io/blog/categories/development/atom.xml" rel="self"/>
   <link href="http://aaronliew.github.io/"/>
-  <updated>2014-03-11T18:27:16+08:00</updated>
+  <updated>2014-03-12T14:22:51+08:00</updated>
   <id>http://aaronliew.github.io/</id>
   <author>
     <name><![CDATA[Aaron Liew]]></name>
@@ -12,6 +12,71 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[TroubleShoot of the Movie Search App]]></title>
+    <link href="http://aaronliew.github.io/blog/2014/03/12/day-seven/"/>
+    <updated>2014-03-12T09:38:45+08:00</updated>
+    <id>http://aaronliew.github.io/blog/2014/03/12/day-seven</id>
+    <content type="html"><![CDATA[<p>My initial attempt was to extract the JSON data from the movie database using API key.
+All the JSON data is displayed in LogCat instead of displaying the JSON data in the app.
+First of all, I have modified the coding in the AndroidManifest xml file that is from:</p>
+
+<pre><code>android:name="com.example.moviesearchapp.MainActivity"
+</code></pre>
+
+<p>to</p>
+
+<pre><code>android:name="com.example.moviesearchapp.MainActivityDev"
+</code></pre>
+
+<p>The purpose of the changing the name of the activity is to test the workability of the small part of the coding of Movie Search app
+using MainActivityDev JAVA script. In MainActivityDev.java, JSONReader.readJsonFromUrl command is used to get JSON
+Text format from the movie database URL. The GSON library is used to convert the JSON data to Java DataObject,
+then, display it in the LogCat window by using the command as shown below:</p>
+
+<pre><code>Log.d("test",obj.getResults().get(0).getId().toString());
+</code></pre>
+
+<p>In Log.d, &ldquo;test&rdquo; is a tag which will be presented in the LogCat window along with the string &ldquo;obj.getResults().
+get(0).getId().toString()&rdquo;. If there are any error or exception, &lsquo;Log.e&rsquo; will be used to display the error
+message in the window. The code of MainActivityDev.Java is shown below.</p>
+
+<pre><code>public class MainActivityDev extends Activity {
+@Override
+public void onCreate(Bundle savedInstanceState) {
+
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    final Gson gson= new Gson();
+
+    new Thread(new Runnable() {
+        public void run() {
+            try {
+                 String json = (String) JSONReader.readJsonFromUrl("https://api.themoviedb.org/3/search/movie?" +
+                        "api_key=e3deb5d586800ccb02c69aaad8f66562&amp;query=inception");
+
+                 Movie obj = gson.fromJson(json, Movie.class);
+                 Log.d("test",obj.getResults().get(0).getId().toString());
+
+                 json = (String) JSONReader.readJsonFromUrl("https://api.themoviedb.org/3/movie/" 
+                         + obj.getResults().get(0).getId().toString() + 
+                         "?api_key=e3deb5d586800ccb02c69aaad8f66562");
+
+                 ImdbMovie imdbData = gson.fromJson(json, ImdbMovie.class);
+                 Log.d("test",imdbData.getOverview().toString());
+
+            } catch (IOException e) {
+                Log.e("test", e.getMessage());
+            } catch (JSONException e) {
+                Log.e("test", e.getMessage());
+            }
+
+        }
+    }).start();
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Movie Searching App- Coding Explanation]]></title>
