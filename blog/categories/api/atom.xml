@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: API | Aaron Liew's Blog]]></title>
+  <link href="http://aaronliew.github.io/blog/categories/api/atom.xml" rel="self"/>
+  <link href="http://aaronliew.github.io/"/>
+  <updated>2014-03-17T00:33:01+08:00</updated>
+  <id>http://aaronliew.github.io/</id>
+  <author>
+    <name><![CDATA[Aaron Liew]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Customized List View for Data Presentation]]></title>
+    <link href="http://aaronliew.github.io/blog/2014/03/16/day-eight/"/>
+    <updated>2014-03-16T12:35:03+08:00</updated>
+    <id>http://aaronliew.github.io/blog/2014/03/16/day-eight</id>
+    <content type="html"><![CDATA[<p>In this task, there will be poster, release date and popularity shown in search results
+as shown in the examples below.
+First of all, user types name of movie into text box and then click on &ldquo;Search&rdquo; button.
+Progress bar with &lsquo;Retrieving data&hellip;&ldquo; will be shown.
+<img class="center" src="/images/DayEight/LayoutOne.png" title="Layout One" ></p>
+
+<p>Next, the relevant search results will be shown on the next page with information: poster,
+release data, and popularity.
+<img class="center" src="/images/DayEight/LayoutTwo.png" title="Layout Two" ></p>
+
+<p>In order to perform this task, there are two classes will be added into the coding. The explanation
+of the coding is shown in the figure below. The newly added classes is indicated in red circle.<br/>
+<img class="center" src="/images/DayEight/CodingExplanation.png" title="Coding Explanation" ></p>
+]]></content>
+  </entry>
+  
+</feed>
