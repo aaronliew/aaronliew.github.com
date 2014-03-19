@@ -4,7 +4,7 @@
   <title><![CDATA[Aaron Liew's Blog]]></title>
   <link href="http://aaronliew.github.io/atom.xml" rel="self"/>
   <link href="http://aaronliew.github.io/"/>
-  <updated>2014-03-17T00:33:01+08:00</updated>
+  <updated>2014-03-19T23:52:19+08:00</updated>
   <id>http://aaronliew.github.io/</id>
   <author>
     <name><![CDATA[Aaron Liew]]></name>
@@ -12,6 +12,36 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Using Options Menus and Customized Dialogs for User Interaction]]></title>
+    <link href="http://aaronliew.github.io/blog/2014/03/18/day-nine/"/>
+    <updated>2014-03-18T22:52:09+08:00</updated>
+    <id>http://aaronliew.github.io/blog/2014/03/18/day-nine</id>
+    <content type="html"><![CDATA[<p>In this task, there will be additional features shown in search results, including
+movie overview and option menu. The option menu allows user to choose to view the
+full image and imdb website of movie.</p>
+
+<p>First of all, when user types name of the movie into text. The search result will be shown
+on the next page.<br/>
+<img class="center" src="http://aaronliew.github.io/images/DayNine/ListView.png" title="ListView" >
+When user clicks on the one of the movies in the listview, there will be a pop-up screen and
+shows the user the overview of the movie.
+<img class="center" src="http://aaronliew.github.io/images/DayNine/Overview.png" title="Overview of movie" >
+When the user selects movie, the position of the selected movie in listview is recorded. Therefore,
+once the user clicks on the menu, there are two options that allow user to choose: Imdb cover image
+and Imdb URL.
+<img class="center" src="http://aaronliew.github.io/images/DayNine/OptionsMenus.png" title="Options" ></p>
+
+<p>Once user click on the &ldquo;View full image&rdquo;, the following content will be shown.
+<img class="center" src="http://aaronliew.github.io/images/DayNine/CoverImage.png" title="Cover Image" ></p>
+
+<p>The purpose of MovieListActivity class is to create options menus and customized dialogs for user
+interaction. The explanation of coding of method in MovieListActivity class is shown in the chart
+below.
+<img class="center" src="http://aaronliew.github.io/images/DayNine/Flowchart.JPG" title="Explanation of MovieListActivity Class" ></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Customized List View for Data Presentation]]></title>
