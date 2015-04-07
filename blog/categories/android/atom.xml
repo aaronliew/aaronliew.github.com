@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Android | Aaron Liew's Blog]]></title>
+  <link href="http://aaronliew.github.io/blog/categories/android/atom.xml" rel="self"/>
+  <link href="http://aaronliew.github.io/"/>
+  <updated>2014-03-19T23:52:19+08:00</updated>
+  <id>http://aaronliew.github.io/</id>
+  <author>
+    <name><![CDATA[Aaron Liew]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Customized List View for Data Presentation]]></title>
+    <link href="http://aaronliew.github.io/blog/2014/03/16/day-eight/"/>
+    <updated>2014-03-16T12:35:03+08:00</updated>
+    <id>http://aaronliew.github.io/blog/2014/03/16/day-eight</id>
+    <content type="html"><![CDATA[<p>In this task, there will be poster, release date and popularity shown in search results
+as shown in the examples below.
+First of all, user types name of movie into text box and then click on &ldquo;Search&rdquo; button.
+Progress bar with &lsquo;Retrieving data&hellip;&ldquo; will be shown.
+<img class="center" src="/images/DayEight/LayoutOne.png" title="Layout One" ></p>
+
+<p>Next, the relevant search results will be shown on the next page with information: poster,
+release data, and popularity.
+<img class="center" src="/images/DayEight/LayoutTwo.png" title="Layout Two" ></p>
+
+<p>In order to perform this task, there are two classes will be added into the coding. The explanation
+of the coding is shown in the figure below. The newly added classes is indicated in red circle.<br/>
+<img class="center" src="/images/DayEight/CodingExplanation.png" title="Coding Explanation" ></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[TroubleShoot of the Movie Search App]]></title>
+    <link href="http://aaronliew.github.io/blog/2014/03/12/day-seven/"/>
+    <updated>2014-03-12T09:38:45+08:00</updated>
+    <id>http://aaronliew.github.io/blog/2014/03/12/day-seven</id>
+    <content type="html"><![CDATA[<p>My initial attempt was to extract the JSON data from the movie database using API key.
+All the JSON data is displayed in LogCat instead of displaying the JSON data in the app.
+First of all, I have modified the coding in the AndroidManifest xml file that is from:</p>
+
+<pre><code>android:name="com.example.moviesearchapp.MainActivity"
+</code></pre>
+
+<p>to</p>
+
+<pre><code>android:name="com.example.moviesearchapp.MainActivityDev"
+</code></pre>
+
+<p>The purpose of the changing the name of the activity is to test the workability of the small part of the coding of Movie Search app
+using MainActivityDev JAVA script. In MainActivityDev.java, JSONReader.readJsonFromUrl command is used to get JSON
+Text format from the movie database URL. The GSON library is used to convert the JSON data to Java DataObject,
+then, display it in the LogCat window by using the command as shown below:</p>
+
+<pre><code>Log.d("test",obj.getResults().get(0).getId().toString());
+</code></pre>
+
+<p>In Log.d, &ldquo;test&rdquo; is a tag which will be presented in the LogCat window along with the string &ldquo;obj.getResults().
+get(0).getId().toString()&rdquo;. If there are any error or exception, &lsquo;Log.e&rsquo; will be used to display the error
+message in the window. The code of MainActivityDev.Java is shown below.</p>
+
+<pre><code>public class MainActivityDev extends Activity {
+@Override
+public void onCreate(Bundle savedInstanceState) {
+
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    final Gson gson= new Gson();
+
+    new Thread(new Runnable() {
+        public void run() {
+            try {
+                 String json = (String) JSONReader.readJsonFromUrl("https://api.themoviedb.org/3/search/movie?" +
+                        "api_key=e3deb5d586800ccb02c69aaad8f66562&amp;query=inception");
+
+                 Movie obj = gson.fromJson(json, Movie.class);
+                 Log.d("test",obj.getResults().get(0).getId().toString());
+
+                 json = (String) JSONReader.readJsonFromUrl("https://api.themoviedb.org/3/movie/" 
+                         + obj.getResults().get(0).getId().toString() + 
+                         "?api_key=e3deb5d586800ccb02c69aaad8f66562");
+
+                 ImdbMovie imdbData = gson.fromJson(json, ImdbMovie.class);
+                 Log.d("test",imdbData.getOverview().toString());
+
+            } catch (IOException e) {
+                Log.e("test", e.getMessage());
+            } catch (JSONException e) {
+                Log.e("test", e.getMessage());
+            }
+
+        }
+    }).start();
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Movie Searching App- Coding Explanation]]></title>
+    <link href="http://aaronliew.github.io/blog/2014/03/11/day-six/"/>
+    <updated>2014-03-11T09:10:50+08:00</updated>
+    <id>http://aaronliew.github.io/blog/2014/03/11/day-six</id>
+    <content type="html"><![CDATA[<p>There are five packages in this app as shown in the figure below.
+<img class="center" src="/images/DaySix/PackageChart.JPG" title="Package Chart" >
+In each of these packages, it contains classes as follows:</p>
+
+<ol>
+<li>MovieSearchingApp package
+
+<ul>
+<li>MainActivity.Java</li>
+</ul>
+</li>
+<li>IO package
+
+<ul>
+<li>FlushedInputStream.Java</li>
+</ul>
+</li>
+<li>Model package
+
+<ul>
+<li>Movies.Java</li>
+<li>MoviesResult.Java</li>
+<li>Person.Java</li>
+<li>PersonResult.Java</li>
+</ul>
+</li>
+<li>Services package
+
+<ul>
+<li>GenericSeeker.Java</li>
+<li>MovieSeeker.Java</li>
+<li>PersonSeeker.Java</li>
+</ul>
+</li>
+</ol>
+
+
+<p>In order to explain the purpose of class and package and also show the interaction
+between the package and classes, the chart was constructed as shown in the figure below.
+<img class="center" src="/images/DaySix/CodingExplanation.png" title="Coding Explanation" ></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Movie Searching App- Online Searching Function]]></title>
+    <link href="http://aaronliew.github.io/blog/2014/03/10/day-five/"/>
+    <updated>2014-03-10T21:02:24+08:00</updated>
+    <id>http://aaronliew.github.io/blog/2014/03/10/day-five</id>
+    <content type="html"><![CDATA[<p>Basically, there are two types of search in this app: Movie and Person.
+<img class="center" src="/images/DayFive/Classification.JPG" title="Classification" ></p>
+
+<p>The flowchart on how movie searching app works is shown in the figure below.
+<img class="center" src="/images/DayFive/FlowChart.JPG" title="FlowChart" ></p>
+
+<p>There are two additional features that I have added in the android applications:
+Progress Bar and Online Searching function. The Progress Bar is the indication of
+the progress of retrieving the JSON data from the URL. The online searching function
+includes retrieve the data from the URL and convert the JSON format to JAVA Object
+using GSON library. There were problems I have encountered in the process of
+completing the task as shown below.</p>
+
+<p>1)Problem: API of movie database was upgraded to version 3, therefore, all the data is presented in
+JSON format instead of XML format</p>
+
+<p><em>Solution: Use the GSON libray to convert JSON format into Data Object and display relevant data in the form
+of pop-up message at the bottom of the app.</em></p>
+
+<p>2)Problem: Method to acquire the data from the movie database</p>
+
+<p><em>Solution:  Acquire API key of the movie database. Construct the URL with API key in order to obtain JSON data.</em></p>
+
+<p>3)Problem: NetworkOnMainThread Exception occur while retrieving data from database</p>
+
+<p><em>Solution: Async task was used to solve the &ldquo;NetworkOnMainThread&rdquo; exception error.</em></p>
+
+<p>The operation of app is explained and the result of the movie searching app is shown as follows:</p>
+
+<p>First of all, with movie-search type, the text &ldquo;inception&rdquo; was entered as shown in the figure below.
+The progress bar is shown while obtaining the data from the url after user clicks on the &ldquo;Search Button&rdquo;.
+<img class="center" src="/images/DayFive/MovieSearch.png" title="FlowChart" ></p>
+
+<p>After data is obtained, the movie title and popularity are shown in the pop-up message.</p>
+
+<p><img class="center" src="/images/DayFive/MovieResult.png" title="FlowChart" ></p>
+
+<p>For person-search type, the operation is same as the movie-search type as shown in the figures below.</p>
+
+<p><img class="center" src="/images/DayFive/PersonSearch.png" title="FlowChart" ></p>
+
+<p><img class="center" src="/images/DayFive/PersonResult.png" title="FlowChart" ></p>
+
+<p>In the next blog, I will discuss about detail description of structure of coding and ways to troubleshoot
+the bug of the app.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Android App: Interaction Between Two Activities]]></title>
+    <link href="http://aaronliew.github.io/blog/2014/02/25/day-two/"/>
+    <updated>2014-02-25T09:37:09+08:00</updated>
+    <id>http://aaronliew.github.io/blog/2014/02/25/day-two</id>
+    <content type="html"><![CDATA[<p>First of all, user will insert text into the textbox and press the &lsquo;send&rsquo; button.
+In MainActivity class, the &lsquo;intent&rsquo; object store the values. Next, the DisplayMessageActivity
+will display the message which is inserted by the user. In order to have clearer picture on the
+operation of Android app and interactions between classes, I have created the charts as shown below.</p>
+
+<p><img class="center" src="/images/DayTwo/ExplanationOfActivities.JPG" title="Explanation Of Activities" ></p>
+
+<p><img class="center" src="/images/DayTwo/ClassInteraction.JPG" title="Interaction between class" ></p>
+
+<p>The result is shown in figure below.</p>
+
+<p><img class="center" src="/images/DayTwo/Screenshot.JPG" title="Screenshot" ></p>
+]]></content>
+  </entry>
+  
+</feed>

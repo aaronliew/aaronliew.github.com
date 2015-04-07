@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Octopress | Aaron Liew's Blog]]></title>
+  <link href="http://aaronliew.github.io/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://aaronliew.github.io/"/>
+  <updated>2014-03-19T23:52:19+08:00</updated>
+  <id>http://aaronliew.github.io/</id>
+  <author>
+    <name><![CDATA[Aaron Liew]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Blogging With Octopress]]></title>
+    <link href="http://aaronliew.github.io/blog/2014/02/24/day-one/"/>
+    <updated>2014-02-24T11:08:29+08:00</updated>
+    <id>http://aaronliew.github.io/blog/2014/02/24/day-one</id>
+    <content type="html"><![CDATA[<p>Today, my primary task was to create blog using Octopress in order to
+write down the progress of my android development.
+First of all, after setup the Octopress, there are two commands needed to
+create the .MarkDown extension file, set the title of the post, and preview the blog
+: rake preview and rake new_post. The explanation of the commands
+is shown in the figure below.</p>
+
+<p><img src="/images/DayOne/BlogConfiguration.JPG" title="Blog setup using command line" ></p>
+
+<p>After creating the new post, I have made amendments in _config yml file
+in order to configure the title, subtitle and author of the blog. The code
+of yml file is shown in the figure below.</p>
+
+<p><img class="center" src="/images/DayOne/ConfigureYML.JPG" title="config yml file coding" ></p>
+
+<p>The definition of the respective code in the _config yml file is shown in
+figure below.</p>
+
+<p><img src="/images/DayOne/configYML.JPG" title="Explanation of config yml coding" ></p>
+
+<p>Next, to set the title, comments and category of the the blog, I have
+modified the coding of the file with MarkDown extension as shown below. <br/>
+<img class="center" src="/images/DayOne/MarkDown.JPG" title="Setting of blog post" ></p>
+
+<p>The definition of the respective code in the .MarkDown extension yml file is shown in
+figure below.
+<img src="/images/DayOne/MarkDownImage.JPG" title="Explanation of MarkDown extension file coding" ></p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Android App: Interaction Between Two Activities - Aaron Liew's Blog</title>
+  <meta name="author" content="Aaron Liew">
+
+  
+  <meta name="description" content="First of all, user will insert text into the textbox and press the &lsquo;send&rsquo; button.
+In MainActivity class, the &lsquo;intent&rsquo; object &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://aaronliew.github.io/blog/2014/02/25/day-two">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Aaron Liew's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Aaron Liew's Blog</a></h1>
+  
+    <h2>Blog about Android Development</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:aaronliew.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Android App: Interaction Between Two Activities</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-25T09:37:09+08:00" pubdate data-updated="true">Feb 25<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>First of all, user will insert text into the textbox and press the &lsquo;send&rsquo; button.
+In MainActivity class, the &lsquo;intent&rsquo; object store the values. Next, the DisplayMessageActivity
+will display the message which is inserted by the user. In order to have clearer picture on the
+operation of Android app and interactions between classes, I have created the charts as shown below.</p>
+
+<p><img class="center" src="/images/DayTwo/ExplanationOfActivities.JPG" title="Explanation Of Activities" ></p>
+
+<p><img class="center" src="/images/DayTwo/ClassInteraction.JPG" title="Interaction between class" ></p>
+
+<p>The result is shown in figure below.</p>
+
+<p><img class="center" src="/images/DayTwo/Screenshot.JPG" title="Screenshot" ></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Aaron Liew</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-25T09:37:09+08:00" pubdate data-updated="true">Feb 25<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/android/'>Android</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://aaronliew.github.io/blog/2014/02/25/day-two/" data-via="" data-counturl="http://aaronliew.github.io/blog/2014/02/25/day-two/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/02/24/day-one/" title="Previous Post: Blogging with Octopress">&laquo; Blogging with Octopress</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/03/03/day-three/" title="Next Post: Progress Bar and Action Bar">Progress Bar and Action Bar &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/18/day-nine/">Using Options Menus and Customized Dialogs for User Interaction</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/16/day-eight/">Customized List View for Data Presentation</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/12/day-seven/">TroubleShoot of the Movie Search App</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/11/day-six/">Movie Searching App- Coding Explanation</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/10/day-five/">Movie Searching App- Online Searching Function</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Aaron Liew -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

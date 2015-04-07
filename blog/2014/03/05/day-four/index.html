@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Movie Searching App - Aaron Liew's Blog</title>
+  <meta name="author" content="Aaron Liew">
+
+  
+  <meta name="description" content="Movie Search Android Application was created. Figures below show
+screenshots of the UI of the android in order to have clear on picture
+on the &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://aaronliew.github.io/blog/2014/03/05/day-four">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Aaron Liew's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Aaron Liew's Blog</a></h1>
+  
+    <h2>Blog about Android Development</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:aaronliew.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Movie Searching App</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-05T10:00:17+08:00" pubdate data-updated="true">Mar 5<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Movie Search Android Application was created. Figures below show
+screenshots of the UI of the android in order to have clear on picture
+on the functions of the app.
+<img class="center" src="/images/DayFour/MovieSearchApp.JPG" title="LinearLayout" >
+<img class="center" src="/images/DayFour/Toast.JPG" title="LinearLayout" ></p>
+
+<p>In the initial development, Toast method was used to show the popup message
+after pressing the search button. There are two types of layout: relative layout
+and linear layout.</p>
+
+<p><img class="center" src="/images/DayFour/Linear_Relative_Layout.JPG" title="RadioGroup" ></p>
+
+<p>In activity_main.xml code, the &lsquo;RelativeLayout&#8217;is changed to the &#8216;LinearLayout&rsquo;.
+The layout is set in vertical orientation as shown in the figure below.<br/>
+<img class="center" src="/images/DayFour/LinearLayout.JPG" title="RadioGroup" ></p>
+
+<p>A radiogroup was created to allow user to choose the options either movie or people.
+First of all, the id of the radiobuttons are set as shown below. The red circles is id
+of the widgets whereas the green circle is the text of the widgets.
+<img class="center" src="/images/DayFour/RadioGroup_EditText.JPG" title="RadioGroup" ></p>
+
+<p>A button was created to allow user to search for a movie or people once user clicks on it.
+<img class="center" src="/images/DayFour/Button.JPG" title="Button" ></p>
+
+<p>All the text of the widgets was set in string.xml which is important for localization.
+<img class="center" src="/images/DayFour/string_xml.JPG" title="Button" ></p>
+
+<p>To shows the relationship between the MainActivity java and the xml file, the figure was drawn
+as shown in the figure below.
+<img class="center" src="/images/DayFour/ClassInteraction.JPG" title="Button" ></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Aaron Liew</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-05T10:00:17+08:00" pubdate data-updated="true">Mar 5<span>th</span>, 2014</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://aaronliew.github.io/blog/2014/03/05/day-four/" data-via="" data-counturl="http://aaronliew.github.io/blog/2014/03/05/day-four/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/03/03/day-three/" title="Previous Post: Progress Bar and Action Bar">&laquo; Progress Bar and Action Bar</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/03/10/day-five/" title="Next Post: Movie Searching App- Online Searching Function">Movie Searching App- Online Searching Function &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/18/day-nine/">Using Options Menus and Customized Dialogs for User Interaction</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/16/day-eight/">Customized List View for Data Presentation</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/12/day-seven/">TroubleShoot of the Movie Search App</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/11/day-six/">Movie Searching App- Coding Explanation</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/10/day-five/">Movie Searching App- Online Searching Function</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Aaron Liew -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
