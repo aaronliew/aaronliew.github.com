@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Espresso | Aaron Liew's Blog]]></title>
   <link href="http://aaronliew.github.io/blog/categories/espresso/atom.xml" rel="self"/>
   <link href="http://aaronliew.github.io/"/>
-  <updated>2015-04-08T11:39:59+08:00</updated>
+  <updated>2015-04-08T11:41:09+08:00</updated>
   <id>http://aaronliew.github.io/</id>
   <author>
     <name><![CDATA[Aaron Liew]]></name>
@@ -65,7 +65,7 @@
 
 <p>Here is the demonstration of the test:</p>
 
-<p><iframe width="420" height="315" src="https://www.youtube.com/watch?v=G9wMgmgJIfY" frameborder="0" allowfullscreen>&lt;/ifram</p>
+<p>[[embed url=<a href="https://www.youtube.com/watch?v=G9wMgmgJIfY">https://www.youtube.com/watch?v=G9wMgmgJIfY</a>]]</p>
 ]]></content>
   </entry>
   
