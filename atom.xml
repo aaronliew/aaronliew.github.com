@@ -4,7 +4,7 @@
   <title><![CDATA[Aaron Liew's Blog]]></title>
   <link href="http://aaronliew.github.io/atom.xml" rel="self"/>
   <link href="http://aaronliew.github.io/"/>
-  <updated>2015-04-08T15:24:30+08:00</updated>
+  <updated>2015-04-08T15:26:26+08:00</updated>
   <id>http://aaronliew.github.io/</id>
   <author>
     <name><![CDATA[Aaron Liew]]></name>
@@ -68,7 +68,7 @@
 <div class="embed-video-container"><iframe src="//www.youtube.com/embed/G9wMgmgJIfY" allowfullscreen></iframe></div>
 
 
-<p><strong><em>Coding</em></strong></p>
+<p><strong>Coding</strong></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
