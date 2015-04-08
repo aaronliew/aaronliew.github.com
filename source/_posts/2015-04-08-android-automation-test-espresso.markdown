@@ -18,34 +18,30 @@ The advantage of the Espresso is it is have synchronization feature, meaning it 
 
 **Demonstration of the Espresso**
 
-I have written test script on Facebook Feedmachine Project and uploaded to youtube. 
-
- 
-
-Here are the following functionalities that it will verify:
+I have written test script on animal gallery app. Here are the following steps to verify the functionality of the app:
 
 <ol>
-<li>Run Animal Gallery app</li>
-<li>“Donation” screen will be shown up. Press “Later Button” to proceed to the grid view</li>
+<li>Launch Animal Gallery app</li>
+<li>“Donation” screen will be shown up. Press “Later” button to proceed to main screen</li>
 </ol>
 
 ***Test on functionality of the grid view***
 
 <ol start="3">
-  <li>In grid view, scrolls to the 3rd image and tap on it. </li>
-  <li>In full screen image, swipe to the left and view the next image.</li>
-  <li>Back to the grid view</li>
+  <li>Scrolls to the 3rd image and tap on it. </li>
+  <li>In full screen viewpager, swipe to the left and view the next image.</li>
+  <li>Back to the main screen</li>
   <li>Scrolls to the 6th image and tap on it. </li>
-  <li>In full screen image, swipe to the left twice and view the image.</li>
+  <li>In full screen viewpager, swipe to the left twice and view the image.</li>
   <li>Swipe to the right again to back the previous image.</li>
 </ol>
 
 ***Test on functionality of the navigation drawer***
 
 <ol start="9">
-  <li>Tab on the drawer icon few times to open and close the drawer</li>
+  <li>Tab on the navigation drawer icon to open the drawer</li>
   <li>Search for “Flickr: Dogs” category and tab on it.</li>
-  <li>Open the drawer and select “Tutorial” category.</li>
+  <li>Open the drawer again and select “Tutorial” category.</li>
   <li>Swipes the tutorial screen.</li>
   <li>Done.</li>
 </ol>
