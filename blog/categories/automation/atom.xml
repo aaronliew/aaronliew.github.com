@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Automation | Aaron Liew's Blog]]></title>
   <link href="http://aaronliew.github.io/blog/categories/automation/atom.xml" rel="self"/>
   <link href="http://aaronliew.github.io/"/>
-  <updated>2015-04-08T15:32:03+08:00</updated>
+  <updated>2015-04-08T15:35:09+08:00</updated>
   <id>http://aaronliew.github.io/</id>
   <author>
     <name><![CDATA[Aaron Liew]]></name>
@@ -46,7 +46,7 @@
   <li>Back to the main screen</li>
   <li>Scrolls to the 6th image and tap on it. </li>
   <li>In full screen viewpager, swipe to the left twice and view the image.</li>
-  <li>Swipe to the right again to back the previous image.</li>
+  <li>Swipe to the right again to go back the previous image.</li>
 </ol>
 
 
