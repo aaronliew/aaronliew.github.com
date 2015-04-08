@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Automation | Aaron Liew's Blog]]></title>
+  <link href="http://aaronliew.github.io/blog/categories/automation/atom.xml" rel="self"/>
+  <link href="http://aaronliew.github.io/"/>
+  <updated>2015-04-08T11:39:59+08:00</updated>
+  <id>http://aaronliew.github.io/</id>
+  <author>
+    <name><![CDATA[Aaron Liew]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Android Automation Test- Espresso]]></title>
+    <link href="http://aaronliew.github.io/blog/2015/04/08/android-automation-test-espresso/"/>
+    <updated>2015-04-08T01:13:17+08:00</updated>
+    <id>http://aaronliew.github.io/blog/2015/04/08/android-automation-test-espresso</id>
+    <content type="html"><![CDATA[<p>One common approach to UI testing is to run tests manually and verify that the app is behaving as expected. However, this approach can be very time-consuming, tedious, and error-prone especially when we run tests on multiple devices. This is where Android Automated Tests becomes useful, it can perform repetitive task without human intervention.</p>
+
+<p><strong>White-box test &ndash; Espresso</strong></p>
+
+<p>There are two types tests: white-box test and black-box test. White-box test is method of testing software that tests internal structures or workings of an application. Black-box test is method of examining the functionality of an application without peering into its internal structures or workings. In this project, I did white-box test on my code using Espresso library.</p>
+
+<p><strong>Advantage of Espresso</strong></p>
+
+<p>The advantage of the Espresso is it is have synchronization feature, meaning it waits for UI events in the current message queue to process and default task to complete before it moves on to the next test operation.</p>
+
+<p><strong>Demonstration of the Espresso</strong></p>
+
+<p>I have written test script on Facebook Feedmachine Project and uploaded to youtube.</p>
+
+<p>Here are the following functionalities that it will verify:</p>
+
+<ol>
+<li>Run Animal Gallery app</li>
+<li>“Donation” screen will be shown up. Press “Later Button” to proceed to the grid view</li>
+</ol>
+
+
+<p><strong><em>Test on functionality of the grid view</em></strong></p>
+
+<ol start="3">
+  <li>In grid view, scrolls to the 3rd image and tap on it. </li>
+  <li>In full screen image, swipe to the left and view the next image.</li>
+  <li>Back to the grid view</li>
+  <li>Scrolls to the 6th image and tap on it. </li>
+  <li>In full screen image, swipe to the left twice and view the image.</li>
+  <li>Swipe to the right again to back the previous image.</li>
+</ol>
+
+
+<p><strong><em>Test on functionality of the navigation drawer</em></strong></p>
+
+<ol start="9">
+  <li>Tab on the drawer icon few times to open and close the drawer</li>
+  <li>Search for “Flickr: Dogs” category and tab on it.</li>
+  <li>Open the drawer and select “Tutorial” category.</li>
+  <li>Swipes the tutorial screen.</li>
+  <li>Done.</li>
+</ol>
+
+
+<p>Here is the demonstration of the test:</p>
+
+<p><iframe width="420" height="315" src="https://www.youtube.com/watch?v=G9wMgmgJIfY" frameborder="0" allowfullscreen>&lt;/ifram</p>
+]]></content>
+  </entry>
+  
+</feed>
