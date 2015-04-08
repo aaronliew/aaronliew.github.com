@@ -56,7 +56,7 @@ Here is the demonstration of the test:
 {% youtube G9wMgmgJIfY %}
 
 
-***Coding***
+**Coding**
 {% codeblock lang:java %}
  public void testGridView() {
         //Close the dialog and press later button
