@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | Aaron Liew's Blog]]></title>
   <link href="http://aaronliew.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://aaronliew.github.io/"/>
-  <updated>2015-04-08T11:49:46+08:00</updated>
+  <updated>2015-04-08T15:06:19+08:00</updated>
   <id>http://aaronliew.github.io/</id>
   <author>
     <name><![CDATA[Aaron Liew]]></name>
@@ -65,10 +65,7 @@
 
 <p>Here is the demonstration of the test:</p>
 
-<iframe width="480" height="360" src="https://www.youtube.com/watch?v=G9wMgmgJIfY" frameborder="0"> </iframe>
-
-
-
+<p><div class="embed-video-container"><iframe src="//www.youtube.com/embed/ObV4YcGkcQ8" allowfullscreen></iframe></div></p>
 ]]></content>
   </entry>
   
