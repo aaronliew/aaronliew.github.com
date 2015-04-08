@@ -33,7 +33,7 @@ I have written test script on animal gallery app. Here are the following steps t
   <li>Back to the main screen</li>
   <li>Scrolls to the 6th image and tap on it. </li>
   <li>In full screen viewpager, swipe to the left twice and view the image.</li>
-  <li>Swipe to the right again to back the previous image.</li>
+  <li>Swipe to the right again to go back the previous image.</li>
 </ol>
 
 ***Test on functionality of the navigation drawer***
