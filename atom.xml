@@ -4,7 +4,7 @@
   <title><![CDATA[Aaron Liew's Blog]]></title>
   <link href="http://aaronliew.github.io/atom.xml" rel="self"/>
   <link href="http://aaronliew.github.io/"/>
-  <updated>2015-04-08T11:41:09+08:00</updated>
+  <updated>2015-04-08T11:46:00+08:00</updated>
   <id>http://aaronliew.github.io/</id>
   <author>
     <name><![CDATA[Aaron Liew]]></name>
@@ -63,9 +63,8 @@
 </ol>
 
 
-<p>Here is the demonstration of the test:</p>
-
-<p>[[embed url=<a href="https://www.youtube.com/watch?v=G9wMgmgJIfY">https://www.youtube.com/watch?v=G9wMgmgJIfY</a>]]</p>
+<p>Here is the demonstration of the test:
+<video width='' height='' preload='none' controls poster=''><source src='https://www.youtube.com/watch?v=G9wMgmgJIfY' ></video></p>
 ]]></content>
   </entry>
   
