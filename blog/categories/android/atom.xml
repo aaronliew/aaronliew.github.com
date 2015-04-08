@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | Aaron Liew's Blog]]></title>
   <link href="http://aaronliew.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://aaronliew.github.io/"/>
-  <updated>2015-04-08T15:06:19+08:00</updated>
+  <updated>2015-04-08T15:23:59+08:00</updated>
   <id>http://aaronliew.github.io/</id>
   <author>
     <name><![CDATA[Aaron Liew]]></name>
@@ -65,7 +65,176 @@
 
 <p>Here is the demonstration of the test:</p>
 
-<p><div class="embed-video-container"><iframe src="//www.youtube.com/embed/ObV4YcGkcQ8" allowfullscreen></iframe></div></p>
+<p><div class="embed-video-container"><iframe src="//www.youtube.com/embed/G9wMgmgJIfY" allowfullscreen></iframe></div></p>
+
+<p><strong><em>Coding</em></strong>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testGridView</span><span class="o">()</span> <span class="o">{&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>    <span class="c1">//Close the dialog and press later button</span>
+</span><span class='line'>    <span class="n">onView</span><span class="o">(</span><span class="n">withId</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">later_button</span><span class="o">))</span>
+</span><span class='line'>    <span class="o">.</span><span class="na">perform</span><span class="o">(</span><span class="n">click</span><span class="o">());</span>
+</span><span class='line'>    <span class="n">onView</span><span class="o">(</span><span class="n">isRoot</span><span class="o">()).</span><span class="na">perform</span><span class="o">(</span><span class="n">waitAtLeast</span><span class="o">(</span><span class="mi">2000</span><span class="o">));</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//Scroll the 3rd image of view and select it</span>
+</span><span class='line'>    <span class="n">onData</span><span class="o">(</span><span class="n">anything</span><span class="o">())</span>
+</span><span class='line'>    <span class="o">.</span><span class="na">inAdapterView</span><span class="o">(</span><span class="n">allOf</span><span class="o">(</span><span class="n">withId</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">gridview</span><span class="o">),</span> <span class="n">isDisplayed</span><span class="o">()))</span>
+</span><span class='line'>    <span class="o">.</span><span class="na">atPosition</span><span class="o">(</span><span class="mi">2</span><span class="o">)</span>
+</span><span class='line'>    <span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">matches</span><span class="o">(</span><span class="n">isDisplayed</span><span class="o">()))</span>
+</span><span class='line'>    <span class="o">.</span><span class="na">perform</span><span class="o">(</span><span class="n">click</span><span class="o">());</span>
+</span><span class='line'>    <span class="n">onView</span><span class="o">(</span><span class="n">isRoot</span><span class="o">()).</span><span class="na">perform</span><span class="o">(</span><span class="n">waitAtLeast</span><span class="o">(</span><span class="mi">2000</span><span class="o">));</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//Do the swiping </span>
+</span><span class='line'>    <span class="n">onView</span><span class="o">(</span><span class="n">withId</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">pager</span><span class="o">))</span>
+</span><span class='line'>      <span class="o">.</span><span class="na">perform</span><span class="o">(</span><span class="n">swipeLeft</span><span class="o">());</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//Back to the main screen</span>
+</span><span class='line'>    <span class="n">Espresso</span><span class="o">.</span><span class="na">pressBack</span><span class="o">();</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//Scroll the 5th image of view and select it</span>
+</span><span class='line'>    <span class="n">onData</span><span class="o">(</span><span class="n">anything</span><span class="o">())</span>
+</span><span class='line'>            <span class="o">.</span><span class="na">inAdapterView</span><span class="o">(</span><span class="n">allOf</span><span class="o">(</span><span class="n">withId</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">gridview</span><span class="o">),</span> <span class="n">isDisplayed</span><span class="o">()))</span>
+</span><span class='line'>            <span class="o">.</span><span class="na">atPosition</span><span class="o">(</span><span class="mi">5</span><span class="o">)</span>
+</span><span class='line'>            <span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">matches</span><span class="o">(</span><span class="n">isDisplayed</span><span class="o">()))</span>
+</span><span class='line'>            <span class="o">.</span><span class="na">perform</span><span class="o">(</span><span class="n">click</span><span class="o">());</span>
+</span><span class='line'>    <span class="n">onView</span><span class="o">(</span><span class="n">isRoot</span><span class="o">()).</span><span class="na">perform</span><span class="o">(</span><span class="n">waitAtLeast</span><span class="o">(</span><span class="mi">2000</span><span class="o">));</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//Do the swiping</span>
+</span><span class='line'>    <span class="n">onView</span><span class="o">(</span><span class="n">withId</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">pager</span><span class="o">))</span>
+</span><span class='line'>            <span class="o">.</span><span class="na">perform</span><span class="o">(</span><span class="n">swipeLeft</span><span class="o">());</span>
+</span><span class='line'>    <span class="n">onView</span><span class="o">(</span><span class="n">withId</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">pager</span><span class="o">))</span>
+</span><span class='line'>            <span class="o">.</span><span class="na">perform</span><span class="o">(</span><span class="n">swipeLeft</span><span class="o">());</span>
+</span><span class='line'>    <span class="n">onView</span><span class="o">(</span><span class="n">withId</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">pager</span><span class="o">))</span>
+</span><span class='line'>            <span class="o">.</span><span class="na">perform</span><span class="o">(</span><span class="n">swipeRight</span><span class="o">());</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//Back to main screen</span>
+</span><span class='line'>    <span class="n">Espresso</span><span class="o">.</span><span class="na">pressBack</span><span class="o">();</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;}&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kd">public</span> <span class="kt">void</span> <span class="n">testNavDrawer</span><span class="o">(){&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>    <span class="c1">//Click on the later button</span>
+</span><span class='line'>    <span class="n">onView</span><span class="o">(</span><span class="n">withId</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">later_button</span><span class="o">))</span>
+</span><span class='line'>            <span class="o">.</span><span class="na">perform</span><span class="o">(</span><span class="n">click</span><span class="o">());</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//Open and close the drawer</span>
+</span><span class='line'>    <span class="n">onView</span><span class="o">(</span><span class="n">withContentDescription</span><span class="o">(</span><span class="n">getActivity</span><span class="o">().</span><span class="na">getString</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">drawer_open</span><span class="o">)))</span>
+</span><span class='line'>        <span class="o">.</span><span class="na">perform</span><span class="o">(</span><span class="n">click</span><span class="o">());</span>
+</span><span class='line'>    <span class="n">onView</span><span class="o">(</span><span class="n">withContentDescription</span><span class="o">(</span><span class="n">getActivity</span><span class="o">().</span><span class="na">getString</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">drawer_close</span><span class="o">)))</span>
+</span><span class='line'>        <span class="o">.</span><span class="na">perform</span><span class="o">(</span><span class="n">click</span><span class="o">());</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//Open the drawer and select dog category</span>
+</span><span class='line'>    <span class="n">onView</span><span class="o">(</span><span class="n">withContentDescription</span><span class="o">(</span><span class="n">getActivity</span><span class="o">().</span><span class="na">getString</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">drawer_open</span><span class="o">)))</span>
+</span><span class='line'>        <span class="o">.</span><span class="na">perform</span><span class="o">(</span><span class="n">click</span><span class="o">());</span>
+</span><span class='line'>    <span class="n">onView</span><span class="o">(</span><span class="n">Matchers</span><span class="o">.</span><span class="na">allOf</span><span class="o">(</span><span class="n">ViewMatchers</span><span class="o">.</span><span class="na">withId</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">sm_item_title</span><span class="o">),</span> <span class="n">hasSibling</span><span class="o">(</span><span class="n">ViewMatchers</span><span class="o">.</span><span class="na">withText</span><span class="o">(</span><span class="s">&quot;Flickr: Dogs&quot;</span><span class="o">)))).</span><span class="na">perform</span><span class="o">(</span><span class="n">click</span><span class="o">());</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//Open the drawer again and select tutorial</span>
+</span><span class='line'>    <span class="n">onView</span><span class="o">(</span><span class="n">withContentDescription</span><span class="o">(</span><span class="n">getActivity</span><span class="o">().</span><span class="na">getString</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">drawer_open</span><span class="o">)))</span>
+</span><span class='line'>         <span class="o">.</span><span class="na">perform</span><span class="o">(</span><span class="n">click</span><span class="o">());</span>
+</span><span class='line'>    <span class="n">onView</span><span class="o">(</span><span class="n">isRoot</span><span class="o">()).</span><span class="na">perform</span><span class="o">(</span><span class="n">waitAtLeast</span><span class="o">(</span><span class="mi">2000</span><span class="o">));</span>
+</span><span class='line'>    <span class="n">onView</span><span class="o">(</span><span class="n">withId</span><span class="o">(</span> <span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">tutorial</span><span class="o">)).</span><span class="na">perform</span><span class="o">(</span> <span class="n">scrollTo</span><span class="o">(),</span> <span class="n">click</span><span class="o">());</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//Do the swiping on tutorial screen</span>
+</span><span class='line'>    <span class="n">onView</span><span class="o">(</span><span class="n">withId</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">tutorial_pager</span><span class="o">))</span>
+</span><span class='line'>    <span class="o">.</span><span class="na">perform</span><span class="o">(</span><span class="n">swipeLeft</span><span class="o">());</span>
+</span><span class='line'>    <span class="n">onView</span><span class="o">(</span><span class="n">withId</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">tutorial_pager</span><span class="o">))</span>
+</span><span class='line'>            <span class="o">.</span><span class="na">perform</span><span class="o">(</span><span class="n">swipeLeft</span><span class="o">());</span>
+</span><span class='line'>    <span class="n">onView</span><span class="o">(</span><span class="n">withId</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">tutorial_pager</span><span class="o">))</span>
+</span><span class='line'>            <span class="o">.</span><span class="na">perform</span><span class="o">(</span><span class="n">swipeRight</span><span class="o">());</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//Back to previous activity</span>
+</span><span class='line'>    <span class="n">Espresso</span><span class="o">.</span><span class="na">pressBack</span><span class="o">();</span>
+</span><span class='line'>    <span class="n">onView</span><span class="o">(</span><span class="n">isRoot</span><span class="o">()).</span><span class="na">perform</span><span class="o">(</span><span class="n">waitAtLeast</span><span class="o">(</span><span class="mi">2000</span><span class="o">));</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;}&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 ]]></content>
   </entry>
   
