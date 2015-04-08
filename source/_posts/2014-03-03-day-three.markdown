@@ -1,0 +1,39 @@
+---
+layout: post
+title: "Progress Bar and Action Bar"
+date: 2014-03-03 12:10:54 +0800
+comments: true
+categories: [Android Development, Tutorial]
+---
+
+Each of android application has its own unique icon. In AndroidManifest.xml, 
+"android:icon="@drawable/ic_launcher" means the application icon refers to 
+the image at the directory of /drawable/ic_launcher. Therefore, application icon 
+can be changed by overwrite the image at this directory. The image can be overwritten 
+by creating the new android icon and browse image from directory of downloaded image. 
+The result is shown in the figure below. 
+
+{% img center /images/DayThree/AppIcon.png Application Icon %}
+
+Progress bar is the indicator of the progress of an activity. It can be done by dragging
+the progress bar into the UI. In order to show progress bar at center of the application, 
+the code "android:layout_centerInParent="true"" was added into the main.xml file.
+The result is shown in the figure below.
+
+{% img center /images/DayThree/ProgressBar.png Progress Bar %}
+
+The purpose of action bar in this android application is to allow user to access to the 
+help/about. Therefore, external library "ActionBarSherlock" was added to add action bar 
+into the application. The id, icon, and title of the help and about of the menu were set 
+in menu/option.xml file. The code of option.xml is shown in the figure below.
+
+{% img center /images/DayThree/MainXml.JPG Menu %}
+
+Next, in the src/main activity java file, the class was extended with SherlockFragmentActivty.
+The method onOptionsItemSelected was created to perform the action once user clicks on the 
+help/about in the menu. The code of main activity java file is shown below. 
+{% img center /images/DayThree/MainActivityJava.JPG Menu %}
+
+When user clicks on the menu button, the result is illustrated as follows:
+
+{% img center /images/DayThree/ScreenMenu.png Menu %}

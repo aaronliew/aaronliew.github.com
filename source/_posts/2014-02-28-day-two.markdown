@@ -1,0 +1,19 @@
+---
+layout: post
+title: "Android App: Interaction between two activities"
+date: 2014-02-25 09:37:09 +0800
+comments: true
+categories: [Android]
+---
+First of all, user will insert text into the textbox and press the 'send' button. 
+In MainActivity class, the 'intent' object store the values. Next, the DisplayMessageActivity 
+will display the message which is inserted by the user. In order to have clearer picture on the 
+operation of Android app and interactions between classes, I have created the charts as shown below.
+
+{% img center /images/DayTwo/ExplanationOfActivities.JPG Explanation Of Activities %}
+
+{% img center /images/DayTwo/ClassInteraction.JPG Interaction between class%}
+
+The result is shown in figure below.
+
+{% img center /images/DayTwo/Screenshot.JPG Screenshot %}

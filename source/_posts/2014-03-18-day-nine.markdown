@@ -1,0 +1,29 @@
+---
+layout: post
+title: "Using options menus and customized dialogs for user interaction"
+date: 2014-03-18 22:52:09 +0800
+comments: true
+categories: [Movie, Searching, App]
+---
+In this task, there will be additional features shown in search results, including 
+movie overview and option menu. The option menu allows user to choose to view the 
+full image and imdb website of movie. 
+
+First of all, when user types name of the movie into text. The search result will be shown 
+on the next page.  
+{% img center /images/DayNine/ListView.png ListView %}
+When user clicks on the one of the movies in the listview, there will be a pop-up screen and 
+shows the user the overview of the movie.
+{% img center /images/DayNine/Overview.png Overview of movie %}
+When the user selects movie, the position of the selected movie in listview is recorded. Therefore,
+once the user clicks on the menu, there are two options that allow user to choose: Imdb cover image 
+and Imdb URL. 
+{% img center /images/DayNine/OptionsMenus.png Options %}
+
+Once user click on the "View full image", the following content will be shown.
+{% img center /images/DayNine/CoverImage.png Cover Image %}
+
+The purpose of MovieListActivity class is to create options menus and customized dialogs for user 
+interaction. The explanation of coding of method in MovieListActivity class is shown in the chart 
+below. 
+{% img center /images/DayNine/Flowchart.JPG Explanation of MovieListActivity Class %}

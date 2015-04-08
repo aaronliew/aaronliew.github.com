@@ -1,0 +1,38 @@
+---
+layout: post
+title: "Movie Searching App"
+date: 2014-03-05 10:00:17 +0800
+comments: true
+categories: 
+---
+
+Movie Search Android Application was created. Figures below show 
+screenshots of the UI of the android in order to have clear on picture 
+on the functions of the app.
+{% img center /images/DayFour/MovieSearchApp.JPG LinearLayout %}
+{% img center /images/DayFour/Toast.JPG LinearLayout %}
+
+In the initial development, Toast method was used to show the popup message
+after pressing the search button. There are two types of layout: relative layout
+and linear layout. 
+
+{% img center /images/DayFour/Linear_Relative_Layout.JPG RadioGroup %}
+
+In activity_main.xml code, the 'RelativeLayout'is changed to the 'LinearLayout'. 
+The layout is set in vertical orientation as shown in the figure below.  
+{% img center /images/DayFour/LinearLayout.JPG RadioGroup %}
+
+A radiogroup was created to allow user to choose the options either movie or people.
+First of all, the id of the radiobuttons are set as shown below. The red circles is id
+of the widgets whereas the green circle is the text of the widgets. 
+{% img center /images/DayFour/RadioGroup_EditText.JPG RadioGroup %}
+
+A button was created to allow user to search for a movie or people once user clicks on it. 
+{% img center /images/DayFour/Button.JPG Button %}
+
+All the text of the widgets was set in string.xml which is important for localization. 
+{% img center /images/DayFour/string_xml.JPG Button %}
+
+To shows the relationship between the MainActivity java and the xml file, the figure was drawn 
+as shown in the figure below. 
+{% img center /images/DayFour/ClassInteraction.JPG Button %}

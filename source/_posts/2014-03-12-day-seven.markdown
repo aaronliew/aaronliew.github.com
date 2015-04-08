@@ -1,0 +1,57 @@
+---
+layout: post
+title: "TroubleShoot of the movie search app"
+date: 2014-03-12 09:38:45 +0800
+comments: true
+categories: [Android, Development]
+---
+
+My initial attempt was to extract the JSON data from the movie database using API key. 
+All the JSON data is displayed in LogCat instead of displaying the JSON data in the app. 
+First of all, I have modified the coding in the AndroidManifest xml file that is from:
+	android:name="com.example.moviesearchapp.MainActivity"
+to 	
+	android:name="com.example.moviesearchapp.MainActivityDev"
+The purpose of the changing the name of the activity is to test the workability of the small part of the coding of Movie Search app
+using MainActivityDev JAVA script. In MainActivityDev.java, JSONReader.readJsonFromUrl command is used to get JSON 
+Text format from the movie database URL. The GSON library is used to convert the JSON data to Java DataObject, 
+then, display it in the LogCat window by using the command as shown below:
+	Log.d("test",obj.getResults().get(0).getId().toString());
+	
+In Log.d, "test" is a tag which will be presented in the LogCat window along with the string "obj.getResults().
+get(0).getId().toString()". If there are any error or exception, 'Log.e' will be used to display the error 
+message in the window. The code of MainActivityDev.Java is shown below. 
+
+	public class MainActivityDev extends Activity {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+    	
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    	final Gson gson= new Gson();
+    	
+		new Thread(new Runnable() {
+	        public void run() {
+	        	try {
+	        		 String json = (String) JSONReader.readJsonFromUrl("https://api.themoviedb.org/3/search/movie?" +
+	        		 		"api_key=e3deb5d586800ccb02c69aaad8f66562&query=inception");
+	        		 
+	        		 Movie obj = gson.fromJson(json, Movie.class);
+	        	     Log.d("test",obj.getResults().get(0).getId().toString());
+	        	     
+	        	     json = (String) JSONReader.readJsonFromUrl("https://api.themoviedb.org/3/movie/" 
+	        	    		 + obj.getResults().get(0).getId().toString() + 
+	        	    		 "?api_key=e3deb5d586800ccb02c69aaad8f66562");
+	        	     
+	        	     ImdbMovie imdbData = gson.fromJson(json, ImdbMovie.class);
+	        	     Log.d("test",imdbData.getOverview().toString());
+	        	    	
+				} catch (IOException e) {
+					Log.e("test", e.getMessage());
+				} catch (JSONException e) {
+					Log.e("test", e.getMessage());
+				}
+				
+	        }
+	    }).start();
+		

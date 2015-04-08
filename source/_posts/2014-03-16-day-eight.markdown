@@ -1,0 +1,20 @@
+---
+layout: post
+title: "Customized list view for data presentation"
+date: 2014-03-16 12:35:03 +0800
+comments: true
+categories: [Android, Development, API]
+---
+In this task, there will be poster, release date and popularity shown in search results 
+as shown in the examples below. 
+First of all, user types name of movie into text box and then click on "Search" button.
+Progress bar with 'Retrieving data..." will be shown. 
+{% img center /images/DayEight/LayoutOne.png Layout One %}
+
+Next, the relevant search results will be shown on the next page with information: poster, 
+release data, and popularity.
+{% img center /images/DayEight/LayoutTwo.png Layout Two %}
+
+In order to perform this task, there are two classes will be added into the coding. The explanation
+of the coding is shown in the figure below. The newly added classes is indicated in red circle.  
+{% img center /images/DayEight/CodingExplanation.png Coding Explanation %}

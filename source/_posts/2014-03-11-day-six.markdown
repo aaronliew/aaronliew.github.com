@@ -1,0 +1,31 @@
+---
+layout: post
+title: "Movie Searching App- Coding Explanation "
+date: 2014-03-11 09:10:50 +0800
+comments: true
+categories: [Android, Development]
+---
+
+There are five packages in this app as shown in the figure below.
+{% img center /images/DaySix/PackageChart.JPG Package Chart %}
+In each of these packages, it contains classes as follows:
+
+1.	MovieSearchingApp package
+	+	MainActivity.Java
+2.	IO package
+	+	FlushedInputStream.Java
+3.	Model package
+	+	Movies.Java
+	+	MoviesResult.Java
+	+	Person.Java
+	+	PersonResult.Java
+4.	Services package
+	+	GenericSeeker.Java
+	+	MovieSeeker.Java
+	+	PersonSeeker.Java
+
+In order to explain the purpose of class and package and also show the interaction 
+between the package and classes, the chart was constructed as shown in the figure below.
+{% img center /images/DaySix/CodingExplanation.png Coding Explanation %}
+
+

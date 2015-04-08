@@ -1,7 +1,35 @@
 ---
 layout: post
-title: "Day One"
-date: 2014-02-27 11:08:29 +0800
+title:  Blogging with Octopress
+date: 2014-02-24 11:08:29 +0800
 comments: true
-categories: 
+categories: [Octopress, Blog]
 ---
+
+Today, my primary task was to create blog using Octopress in order to
+write down the progress of my android development.
+First of all, after setup the Octopress, there are two commands needed to 
+create the .MarkDown extension file, set the title of the post, and preview the blog
+: rake preview and rake new_post. The explanation of the commands
+is shown in the figure below. 
+
+{% img /images/DayOne/BlogConfiguration.JPG Blog setup using command line %}
+
+After creating the new post, I have made amendments in _config yml file 
+in order to configure the title, subtitle and author of the blog. The code
+of yml file is shown in the figure below. 
+
+{% img center /images/DayOne/ConfigureYML.JPG config yml file coding %}
+
+The definition of the respective code in the _config yml file is shown in 
+figure below. 
+
+{% img /images/DayOne/configYML.JPG Explanation of config yml coding %}
+
+Next, to set the title, comments and category of the the blog, I have 
+modified the coding of the file with MarkDown extension as shown below.   
+{% img center /images/DayOne/MarkDown.JPG Setting of blog post %}
+
+The definition of the respective code in the .MarkDown extension yml file is shown in 
+figure below. 
+{% img /images/DayOne/MarkDownImage.JPG Explanation of MarkDown extension file coding %}
