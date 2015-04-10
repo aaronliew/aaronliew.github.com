@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Android Automation Test- Espresso"
+title: "White-Box Testing- Espresso"
 date: 2015-04-08 01:13:17 +0800
 comments: true
-categories: [Android, Automation, Test, Espresso]
+categories: [Android, Automation, White-box Test, Espresso]
 ---
 
 One common approach to UI testing is to run tests manually and verify that the app is behaving as expected. However, this approach can be very time-consuming, tedious, and error-prone especially when we run tests on multiple devices. This is where Android Automated Tests becomes useful, it can perform repetitive task without human intervention. 
 
-**White-box test - Espresso**
+**What is White-box Testing?**
 
 There are two types tests: white-box test and black-box test. White-box test is method of testing software that tests internal structures or workings of an application. Black-box test is method of examining the functionality of an application without peering into its internal structures or workings. In this project, I did white-box test on my code using Espresso library.
 
@@ -53,6 +53,7 @@ Here is the demonstration of the test:
 
 
 **Coding**
+
 {% codeblock lang:java %}
  public void testGridView() {
         //Close the dialog and press later button
