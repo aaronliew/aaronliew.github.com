@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Black-Box Testing - Robotium - Aaron Liew's Blog</title>
+  <meta name="author" content="Aaron Liew">
+
+  
+  <meta name="description" content="In previous post, it focuses on the white-box testing using Espresso. In this post, I’m going to do Black-box test using Robotium. What is Black-box &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://aaronliew.github.io/blog/2015/04/10/black-box-test-robotium">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Aaron Liew's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Aaron Liew's Blog</a></h1>
+  
+    <h2>Blog about Android Development</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:aaronliew.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Black-Box Testing - Robotium</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-04-10T11:38:52+08:00" pubdate data-updated="true">Apr 10<span>th</span>, 2015</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>In previous post, it focuses on the white-box testing using Espresso.  In this post, I’m going to do Black-box test using Robotium.</p>
+
+<p><strong>What is Black-box Testing?</strong></p>
+
+<p>Black-box testing is a method of the software testing that examines the functionality of an application without peering into its internal structure. For example, in a black-box test on Android application, the tester only knows the inputs and what the expected outcomes should be and not how the program arrives at those outputs.</p>
+
+<p><strong>Demonstration of the Black-box testing</strong></p>
+
+<p>This test focuses on these three main areas: grid view, view pager and navigation drawer. The process of the testing the functionalities is exactly same as the previous <a href="http://aaronliew.github.io/blog/2015/04/08/android-automation-test-espresso/">post</a>.</p>
+
+<p>Here is the demonstration of test:</p>
+
+<div class="embed-video-container"><iframe src="//www.youtube.com/embed/G9wMgmgJIfY" allowfullscreen></iframe></div>
+
+
+<p><strong>Coding</strong></p>
+
+<p>The code is simpler than white-box test using Espresso because it mainly focuses on the input and expected outcomes. Therefore, this test can be done without any knowledge on the codebase of targeted Android application.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">testGridView</span><span class="o">()</span> <span class="kd">throws</span>  <span class="n">Exception</span><span class="o">{</span>
+</span><span class='line'>        <span class="c1">//Close the dialog and press later button</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">clickOnButton</span><span class="o">(</span><span class="s">&quot;Later&quot;</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">//Scroll the 3rd image of view and select it</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">scrollListToLine</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">3</span><span class="o">);</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">clickInList</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1000</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">//Do the swiping</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">scrollToSide</span><span class="o">(</span><span class="n">Solo</span><span class="o">.</span><span class="na">RIGHT</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">//Back to the main screen</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">goBack</span><span class="o">();</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">//Scroll the 5th image of view and select it</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">scrollListToLine</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">5</span><span class="o">);</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">clickInList</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">2000</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">//Do the swiping</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">scrollToSide</span><span class="o">(</span><span class="n">Solo</span><span class="o">.</span><span class="na">RIGHT</span><span class="o">);</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1000</span><span class="o">);</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">scrollToSide</span><span class="o">(</span><span class="n">Solo</span><span class="o">.</span><span class="na">RIGHT</span><span class="o">);</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1000</span><span class="o">);</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">scrollToSide</span><span class="o">(</span><span class="n">Solo</span><span class="o">.</span><span class="na">LEFT</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">//Back to main screen</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">goBack</span><span class="o">();</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">testNavigationDrawer</span><span class="o">()</span> <span class="kd">throws</span>  <span class="n">Exception</span><span class="o">{</span>
+</span><span class='line'>        <span class="c1">//Click on the later button</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">clickOnButton</span><span class="o">(</span><span class="s">&quot;Later&quot;</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">//Open and close the drawer</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">clickOnActionBarHomeButton</span><span class="o">();</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">2000</span><span class="o">);</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">clickOnActionBarHomeButton</span><span class="o">();</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">2000</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">//Open the drawer and select dog category</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">clickOnActionBarHomeButton</span><span class="o">();</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">2000</span><span class="o">);</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">clickOnText</span><span class="o">(</span><span class="s">&quot;Flickr: Dogs&quot;</span><span class="o">);</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">2000</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">//Open the drawer again and select tutorial</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">clickOnActionBarHomeButton</span><span class="o">();</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">2000</span><span class="o">);</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">drag</span><span class="o">(</span><span class="mi">300</span><span class="o">,</span> <span class="mi">300</span><span class="o">,</span> <span class="mi">1000</span><span class="o">,</span> <span class="mi">300</span><span class="o">,</span><span class="mi">2</span><span class="o">);</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">clickOnText</span><span class="o">(</span><span class="s">&quot;Tutorial&quot;</span><span class="o">);</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1500</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">//Do the swiping on tutorial screen</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">scrollToSide</span><span class="o">(</span><span class="n">Solo</span><span class="o">.</span><span class="na">RIGHT</span><span class="o">);</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1000</span><span class="o">);</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">scrollToSide</span><span class="o">(</span><span class="n">Solo</span><span class="o">.</span><span class="na">RIGHT</span><span class="o">);</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1000</span><span class="o">);</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">scrollToSide</span><span class="o">(</span><span class="n">Solo</span><span class="o">.</span><span class="na">LEFT</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">//Back to previous activity</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">goBack</span><span class="o">();</span>
+</span><span class='line'>        <span class="n">solo</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1500</span><span class="o">);</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Aaron Liew</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-04-10T11:38:52+08:00" pubdate data-updated="true">Apr 10<span>th</span>, 2015</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/android/'>Android</a>, <a class='category' href='/blog/categories/automation/'>Automation</a>, <a class='category' href='/blog/categories/black-box-test/'>Black-box Test</a>, <a class='category' href='/blog/categories/robotium/'>Robotium</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://aaronliew.github.io/blog/2015/04/10/black-box-test-robotium/" data-via="" data-counturl="http://aaronliew.github.io/blog/2015/04/10/black-box-test-robotium/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/04/08/android-automation-test-espresso/" title="Previous Post: White-Box Testing- Espresso">&laquo; White-Box Testing- Espresso</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/04/10/black-box-test-robotium/">Black-Box Testing - Robotium</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/04/08/android-automation-test-espresso/">White-Box Testing- Espresso</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/18/day-nine/">Using Options Menus and Customized Dialogs for User Interaction</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/16/day-eight/">Customized List View for Data Presentation</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/12/day-seven/">TroubleShoot of the Movie Search App</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Aaron Liew -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

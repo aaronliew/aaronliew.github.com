@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Test | Aaron Liew's Blog]]></title>
-  <link href="http://aaronliew.github.io/blog/categories/test/atom.xml" rel="self"/>
+  <title><![CDATA[Category: White-box Test | Aaron Liew's Blog]]></title>
+  <link href="http://aaronliew.github.io/blog/categories/white-box-test/atom.xml" rel="self"/>
   <link href="http://aaronliew.github.io/"/>
-  <updated>2015-04-08T15:35:09+08:00</updated>
+  <updated>2015-04-10T12:06:14+08:00</updated>
   <id>http://aaronliew.github.io/</id>
   <author>
     <name><![CDATA[Aaron Liew]]></name>
@@ -14,13 +14,13 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Android Automation Test- Espresso]]></title>
+    <title type="html"><![CDATA[White-Box Testing- Espresso]]></title>
     <link href="http://aaronliew.github.io/blog/2015/04/08/android-automation-test-espresso/"/>
     <updated>2015-04-08T01:13:17+08:00</updated>
     <id>http://aaronliew.github.io/blog/2015/04/08/android-automation-test-espresso</id>
     <content type="html"><![CDATA[<p>One common approach to UI testing is to run tests manually and verify that the app is behaving as expected. However, this approach can be very time-consuming, tedious, and error-prone especially when we run tests on multiple devices. This is where Android Automated Tests becomes useful, it can perform repetitive task without human intervention.</p>
 
-<p><strong>White-box test &ndash; Espresso</strong></p>
+<p><strong>What is White-box Testing?</strong></p>
 
 <p>There are two types tests: white-box test and black-box test. White-box test is method of testing software that tests internal structures or workings of an application. Black-box test is method of examining the functionality of an application without peering into its internal structures or workings. In this project, I did white-box test on my code using Espresso library.</p>
 
@@ -65,8 +65,9 @@
 
 <p><div class="embed-video-container"><iframe src="//www.youtube.com/embed/G9wMgmgJIfY" allowfullscreen></iframe></div></p>
 
-<p><strong>Coding</strong>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><strong>Coding</strong></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
