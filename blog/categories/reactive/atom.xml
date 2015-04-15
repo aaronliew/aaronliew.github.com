@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Reactive | Aaron Liew's Blog]]></title>
   <link href="http://aaronliew.github.io/blog/categories/reactive/atom.xml" rel="self"/>
   <link href="http://aaronliew.github.io/"/>
-  <updated>2015-04-15T23:09:14+08:00</updated>
+  <updated>2015-04-15T23:27:45+08:00</updated>
   <id>http://aaronliew.github.io/</id>
   <author>
     <name><![CDATA[Aaron Liew]]></name>
@@ -190,6 +190,15 @@ to the next event. Each events can be modified into new form before proceed to t
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><strong>Reference</strong></p>
+
+<ol>
+<li><a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754">https://gist.github.com/staltz/868e7e9bc2a7b8c1f754</a></li>
+<li><a href="http://reactivex.io/documentation/operators/map.html">http://reactivex.io/documentation/operators/map.html</a></li>
+<li><a href="http://reactivex.io/RxJava/javadoc/rx/Observable.html#subscribe">http://reactivex.io/RxJava/javadoc/rx/Observable.html#subscribe</a>(rx.Subscriber)</li>
+</ol>
+
 ]]></content>
   </entry>
   
