@@ -4,7 +4,7 @@
   <title><![CDATA[Aaron Liew's Blog]]></title>
   <link href="http://aaronliew.github.io/atom.xml" rel="self"/>
   <link href="http://aaronliew.github.io/"/>
-  <updated>2015-04-10T12:06:14+08:00</updated>
+  <updated>2015-04-15T23:09:14+08:00</updated>
   <id>http://aaronliew.github.io/</id>
   <author>
     <name><![CDATA[Aaron Liew]]></name>
@@ -12,6 +12,150 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[RxAndroid]]></title>
+    <link href="http://aaronliew.github.io/blog/2015/04/15/rxandroid/"/>
+    <updated>2015-04-15T11:42:08+08:00</updated>
+    <id>http://aaronliew.github.io/blog/2015/04/15/rxandroid</id>
+    <content type="html"><![CDATA[<p><strong>What is Reactive Java?</strong></p>
+
+<p>Reactive Java is the library that manages sequences of event by using observable sequences. It is currently implemented by Netflix. Here is the demonstration of the RxJava:</p>
+
+<p><img class="center" src="http://aaronliew.github.io/images/RxJava/RxExample.png" title="Example of RxJava" ></p>
+
+<p>In this example, circular item represents an event where event could be click event, caches, variables, data. It ensures that the event is completed before proceed
+to the next event. Each events can be modified into new form before proceed to the next action. For example,  It applies &ldquo;Map&rdquo; function to the observable sequences into new form.</p>
+
+<p><img class="center" src="http://aaronliew.github.io/images/RxJava/Map.png" title="Map" ></p>
+
+<p><em>Basic Explanation on Observable</em></p>
+
+<p><img class="center" src="http://aaronliew.github.io/images/RxJava/Explanation.png" title="Map" ></p>
+
+<p><strong>Common Usage of RxAndroid</strong></p>
+
+<p><em>Lifecycle observable</em></p>
+
+<p>RxAndroid is able to create a subscription that is bound to lifecycle: OnStart, OnPause and OnResume. It subscribes to an observable on &ldquo;OnStart&rdquo; and unsubscribes observable on &ldquo;onPause&rdquo; and &ldquo;onDestroy&rdquo; lifecycle.  It is important to do so to avoid NullPointerException. NullPointerException happens if it tries to update the UI which is already destroyed after stream of events is completed.</p>
+
+<p><em>Listening observable</em></p>
+
+<p>Whenever there is rotation of screen, the data and activity will be destroyed. RxJava provides feature that always listening to the background sequence which keeps emitting items, and updating UI components, for example Textviews even after screen rotation or detached from the screen.</p>
+
+<p><em>Implementation of Lifecycle and Listening observable</em></p>
+
+<p>In OnCreate, start the sequences.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Override</span>
+</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">strings</span> <span class="o">=</span> <span class="n">SampleObservables</span><span class="o">.</span><span class="na">numberStrings</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">50</span><span class="o">,</span> <span class="mi">250</span><span class="o">).</span><span class="na">publish</span><span class="o">();</span>
+</span><span class='line'>    <span class="n">strings</span><span class="o">.</span><span class="na">connect</span><span class="o">();</span> <span class="c1">// trigger the sequence</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In OnViewCreated of the Fragment, do the subscription. It means whenever the view is created, it will subscribe to an observable and continue to update the UI components i.e. TextView.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">subscription</span> <span class="o">=</span> <span class="n">AppObservable</span><span class="o">.</span><span class="na">bindFragment</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">strings</span><span class="o">).</span><span class="na">subscribe</span><span class="o">(</span><span class="k">new</span> <span class="n">Subscriber</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;()</span> <span class="o">{</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCompleted</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>      <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="n">getActivity</span><span class="o">(),</span> <span class="s">&quot;Done!&quot;</span><span class="o">,</span> <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="n">Throwable</span> <span class="n">throwable</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onNext</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>      <span class="n">textView</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'><span class="o">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Unsubscribe the observable whenever the view is destroyed/detached due to screen rotation to prevent NPE.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Override</span>
+</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDestroyView</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">subscription</span><span class="o">.</span><span class="na">unsubscribe</span><span class="o">();</span>
+</span><span class='line'>    <span class="kd">super</span><span class="o">.</span><span class="na">onDestroyView</span><span class="o">();</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The following code is to bound the subscription to lifecycle.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Override</span>
+</span><span class='line'><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onPause</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>    <span class="kd">super</span><span class="o">.</span><span class="na">onPause</span><span class="o">();</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Should output &quot;false&quot;</span>
+</span><span class='line'>    <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;onPause(), isUnsubscribed=&quot;</span> <span class="o">+</span> <span class="n">subscription</span><span class="o">.</span><span class="na">isUnsubscribed</span><span class="o">());</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nd">@Override</span>
+</span><span class='line'><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onStop</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>    <span class="kd">super</span><span class="o">.</span><span class="na">onStop</span><span class="o">();</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Should output &quot;true&quot;</span>
+</span><span class='line'>    <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;onStop(), isUnsubscribed=&quot;</span> <span class="o">+</span> <span class="n">subscription</span><span class="o">.</span><span class="na">isUnsubscribed</span><span class="o">());</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Black-Box Testing - Robotium]]></title>

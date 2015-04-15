@@ -1,0 +1,352 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>RxAndroid - Aaron Liew's Blog</title>
+  <meta name="author" content="Aaron Liew">
+
+  
+  <meta name="description" content="What is Reactive Java? Reactive Java is the library that manages sequences of event by using observable sequences. It is currently implemented by &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://aaronliew.github.io/blog/2015/04/15/rxandroid">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Aaron Liew's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Aaron Liew's Blog</a></h1>
+  
+    <h2>Blog about Android Development</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:aaronliew.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">RxAndroid</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-04-15T11:42:08+08:00" pubdate data-updated="true">Apr 15<span>th</span>, 2015</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><strong>What is Reactive Java?</strong></p>
+
+<p>Reactive Java is the library that manages sequences of event by using observable sequences. It is currently implemented by Netflix. Here is the demonstration of the RxJava:</p>
+
+<p><img class="center" src="/images/RxJava/RxExample.png" title="Example of RxJava" ></p>
+
+<p>In this example, circular item represents an event where event could be click event, caches, variables, data. It ensures that the event is completed before proceed
+to the next event. Each events can be modified into new form before proceed to the next action. For example,  It applies &ldquo;Map&rdquo; function to the observable sequences into new form.</p>
+
+<p><img class="center" src="/images/RxJava/Map.png" title="Map" ></p>
+
+<p><em>Basic Explanation on Observable</em></p>
+
+<p><img class="center" src="/images/RxJava/Explanation.png" title="Map" ></p>
+
+<p><strong>Common Usage of RxAndroid</strong></p>
+
+<p><em>Lifecycle observable</em></p>
+
+<p>RxAndroid is able to create a subscription that is bound to lifecycle: OnStart, OnPause and OnResume. It subscribes to an observable on &ldquo;OnStart&rdquo; and unsubscribes observable on &ldquo;onPause&rdquo; and &ldquo;onDestroy&rdquo; lifecycle.  It is important to do so to avoid NullPointerException. NullPointerException happens if it tries to update the UI which is already destroyed after stream of events is completed.</p>
+
+<p><em>Listening observable</em></p>
+
+<p>Whenever there is rotation of screen, the data and activity will be destroyed. RxJava provides feature that always listening to the background sequence which keeps emitting items, and updating UI components, for example Textviews even after screen rotation or detached from the screen.</p>
+
+<p><em>Implementation of Lifecycle and Listening observable</em></p>
+
+<p>In OnCreate, start the sequences.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Override</span>
+</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">strings</span> <span class="o">=</span> <span class="n">SampleObservables</span><span class="o">.</span><span class="na">numberStrings</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">50</span><span class="o">,</span> <span class="mi">250</span><span class="o">).</span><span class="na">publish</span><span class="o">();</span>
+</span><span class='line'>    <span class="n">strings</span><span class="o">.</span><span class="na">connect</span><span class="o">();</span> <span class="c1">// trigger the sequence</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In OnViewCreated of the Fragment, do the subscription. It means whenever the view is created, it will subscribe to an observable and continue to update the UI components i.e. TextView.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">subscription</span> <span class="o">=</span> <span class="n">AppObservable</span><span class="o">.</span><span class="na">bindFragment</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">strings</span><span class="o">).</span><span class="na">subscribe</span><span class="o">(</span><span class="k">new</span> <span class="n">Subscriber</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;()</span> <span class="o">{</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCompleted</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>      <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="n">getActivity</span><span class="o">(),</span> <span class="s">&quot;Done!&quot;</span><span class="o">,</span> <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="n">Throwable</span> <span class="n">throwable</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onNext</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>      <span class="n">textView</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'><span class="o">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Unsubscribe the observable whenever the view is destroyed/detached due to screen rotation to prevent NPE.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Override</span>
+</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDestroyView</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">subscription</span><span class="o">.</span><span class="na">unsubscribe</span><span class="o">();</span>
+</span><span class='line'>    <span class="kd">super</span><span class="o">.</span><span class="na">onDestroyView</span><span class="o">();</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The following code is to bound the subscription to lifecycle.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Override</span>
+</span><span class='line'><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onPause</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>    <span class="kd">super</span><span class="o">.</span><span class="na">onPause</span><span class="o">();</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Should output &quot;false&quot;</span>
+</span><span class='line'>    <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;onPause(), isUnsubscribed=&quot;</span> <span class="o">+</span> <span class="n">subscription</span><span class="o">.</span><span class="na">isUnsubscribed</span><span class="o">());</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nd">@Override</span>
+</span><span class='line'><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onStop</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>    <span class="kd">super</span><span class="o">.</span><span class="na">onStop</span><span class="o">();</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Should output &quot;true&quot;</span>
+</span><span class='line'>    <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;onStop(), isUnsubscribed=&quot;</span> <span class="o">+</span> <span class="n">subscription</span><span class="o">.</span><span class="na">isUnsubscribed</span><span class="o">());</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Aaron Liew</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-04-15T11:42:08+08:00" pubdate data-updated="true">Apr 15<span>th</span>, 2015</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/java/'>Java</a>, <a class='category' href='/blog/categories/reactive/'>Reactive</a>, <a class='category' href='/blog/categories/rxandroid/'>RxAndroid</a>, <a class='category' href='/blog/categories/rxjava/'>RxJava</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://aaronliew.github.io/blog/2015/04/15/rxandroid/" data-via="" data-counturl="http://aaronliew.github.io/blog/2015/04/15/rxandroid/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/04/10/black-box-test-robotium/" title="Previous Post: Black-Box Testing - Robotium">&laquo; Black-Box Testing - Robotium</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/04/15/rxandroid/">RxAndroid</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/04/10/black-box-test-robotium/">Black-Box Testing - Robotium</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/04/08/android-automation-test-espresso/">White-Box Testing- Espresso</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/18/day-nine/">Using Options Menus and Customized Dialogs for User Interaction</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/16/day-eight/">Customized List View for Data Presentation</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Aaron Liew -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
