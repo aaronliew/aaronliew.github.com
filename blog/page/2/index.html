@@ -9,8 +9,8 @@
   <meta name="author" content="Aaron Liew">
 
   
-  <meta name="description" content="First of all, user will insert text into the textbox and press the &lsquo;send&rsquo; button.
-In MainActivity class, the &lsquo;intent&rsquo; object &hellip;">
+  <meta name="description" content="Each of android application has its own unique icon. In AndroidManifest.xml,
+&ldquo;android:icon=&rdquo;@drawable/ic_launcher&#8221; means the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,6 +66,72 @@ In MainActivity class, the &lsquo;intent&rsquo; object &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/03/day-three/">Progress Bar and Action Bar</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-03T12:10:54+08:00" pubdate data-updated="true">Mar 3<span>rd</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Each of android application has its own unique icon. In AndroidManifest.xml,
+&ldquo;android:icon=&rdquo;@drawable/ic_launcher&#8221; means the application icon refers to
+the image at the directory of /drawable/ic_launcher. Therefore, application icon
+can be changed by overwrite the image at this directory. The image can be overwritten
+by creating the new android icon and browse image from directory of downloaded image.
+The result is shown in the figure below.</p>
+
+<p><img class="center" src="/images/DayThree/AppIcon.png" title="Application Icon" ></p>
+
+<p>Progress bar is the indicator of the progress of an activity. It can be done by dragging
+the progress bar into the UI. In order to show progress bar at center of the application,
+the code &ldquo;android:layout_centerInParent=&#8221;true&rdquo;&ldquo; was added into the main.xml file.
+The result is shown in the figure below.</p>
+
+<p><img class="center" src="/images/DayThree/ProgressBar.png" title="Progress Bar" ></p>
+
+<p>The purpose of action bar in this android application is to allow user to access to the
+help/about. Therefore, external library &ldquo;ActionBarSherlock&rdquo; was added to add action bar
+into the application. The id, icon, and title of the help and about of the menu were set
+in menu/option.xml file. The code of option.xml is shown in the figure below.</p>
+
+<p><img class="center" src="/images/DayThree/MainXml.JPG" title="Menu" ></p>
+
+<p>Next, in the src/main activity java file, the class was extended with SherlockFragmentActivty.
+The method onOptionsItemSelected was created to perform the action once user clicks on the
+help/about in the menu. The code of main activity java file is shown below.
+<img class="center" src="/images/DayThree/MainActivityJava.JPG" title="Menu" ></p>
+
+<p>When user clicks on the menu button, the result is illustrated as follows:</p>
+
+<p><img class="center" src="/images/DayThree/ScreenMenu.png" title="Menu" ></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -191,6 +257,10 @@ figure below.
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/04/20/android-annotation-code-restructuring/">Android Annotation</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/04/15/rxandroid/">RxAndroid</a>
       </li>
     
@@ -204,10 +274,6 @@ figure below.
     
       <li class="post">
         <a href="/blog/2014/03/18/day-nine/">Using Options Menus and Customized Dialogs for User Interaction</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/16/day-eight/">Customized List View for Data Presentation</a>
       </li>
     
   </ul>

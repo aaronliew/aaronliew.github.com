@@ -4,7 +4,7 @@
   <title><![CDATA[Aaron Liew's Blog]]></title>
   <link href="http://aaronliew.github.io/atom.xml" rel="self"/>
   <link href="http://aaronliew.github.io/"/>
-  <updated>2015-04-15T23:27:45+08:00</updated>
+  <updated>2015-04-20T14:40:36+08:00</updated>
   <id>http://aaronliew.github.io/</id>
   <author>
     <name><![CDATA[Aaron Liew]]></name>
@@ -12,6 +12,104 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Android Annotation]]></title>
+    <link href="http://aaronliew.github.io/blog/2015/04/20/android-annotation-code-restructuring/"/>
+    <updated>2015-04-20T10:18:17+08:00</updated>
+    <id>http://aaronliew.github.io/blog/2015/04/20/android-annotation-code-restructuring</id>
+    <content type="html"><![CDATA[<p>Android Annotation(AA) is framework that facilitate the writing and the maintenance of Android Applications, and greatly simplifies the code. It generates subclasses at compile time, for example, the subclass of the MainActivity class would be MainActivity_. To understand how the AA works, you can have a look at the subclass of the Activity.</p>
+
+<p><strong>How to enhance Android Code with AA</strong></p>
+
+<p>I would like to discuss the common annotations that would be used in Android Development.</p>
+
+<p>Add @EActivity with layout id at the top of the class to replace setContentView of the Activity Class</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@EActivity</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">sliding_menu</span><span class="o">)</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BaseActivity</span> <span class="kd">extends</span> <span class="n">ActionBarActivity</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Add @ViewById to replace findViewById</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@ViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">drawer_layout</span><span class="o">)</span>
+</span><span class='line'><span class="n">DrawerLayout</span> <span class="n">mDrawerLayout</span><span class="o">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Add @Bean to inject the activity context into class</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Bean</span>
+</span><span class='line'><span class="n">GlobalApplication</span> <span class="n">globalApplication</span><span class="o">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Add @AfterView before method to do something after view injection, for example, setText, setBackground, etc..</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@AfterViews</span>
+</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">initLayout</span><span class="o">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Add @Click method with view&rsquo;s id to handle OnClickListener.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Click</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">about_us_linearLayout</span><span class="o">)</span>
+</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">ClickAboutUs</span><span class="o">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>That&rsquo;s it. There is no need to do &ldquo;findViewById&rdquo; to get the view then followed by setOnClickListener.</p>
+
+<p>Want to run a thread? Add @Background above the method</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Background</span>
+</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">DownloadAndSetImage</span><span class="o">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Initiate the Layoutinflator using @SystemService</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@SystemService</span>
+</span><span class='line'><span class="n">LayoutInflater</span> <span class="n">inflator</span><span class="o">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Add EBean at the top of the CLass in order to use available annotations</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@EBean</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">GlobalApplication</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Add @RootContext to inject the context into the class</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@RootContext</span>
+</span><span class='line'><span class="kd">static</span> <span class="n">Context</span> <span class="n">context</span><span class="o">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[RxAndroid]]></title>
